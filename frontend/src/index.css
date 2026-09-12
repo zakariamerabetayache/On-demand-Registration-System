@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+html {
+  overflow-y: scroll;
+}
+
+* {
+  margin: 0;
+}

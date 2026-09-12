@@ -1,0 +1,184 @@
+.parent-signup-container {
+  min-height: 100vh;
+  background: #fef2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 40px 20px;
+  background: #0284c7;
+  color: white;
+  margin: -24px -24px 30px -24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+.signup-header p {
+  margin: 12px 0 0 0;
+  font-size: 15px;
+  opacity: 0.9;
+  color: white;
+  max-width: 600px;
+}
+
+.signup-steps {
+  margin-bottom: 40px;
+}
+
+.signup-form {
+  padding: 0 20px;
+}
+
+.steps-content {
+  min-height: 400px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+.steps-action {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 20px;
+}
+
+.steps-action .ant-btn {
+  margin: 0 8px;
+  min-width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.steps-action .ant-btn-primary {
+  background: #0284c7;
+  border: none;
+}
+
+.steps-action .ant-btn-primary:hover {
+  background: #0284ff;
+}
+
+/* Form styling */
+.ant-form-item-label>label {
+  font-weight: 500;
+  color: #333;
+}
+
+.ant-input,
+.ant-input-password,
+.ant-select-selector,
+.ant-picker {
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s;
+}
+
+.ant-input:focus,
+.ant-input-password:focus,
+.ant-select-focused .ant-select-selector,
+.ant-picker:hover,
+.ant-picker-focused {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.1);
+}
+
+.ant-radio-group {
+  width: 100%;
+}
+
+.ant-radio-wrapper {
+  margin-right: 20px;
+  font-weight: 500;
+}
+
+.ant-upload {
+  width: 100%;
+}
+
+.ant-upload-list {
+  margin-top: 10px;
+}
+
+/* Steps styling */
+.ant-steps-item-process .ant-steps-item-icon {
+  background-color: #0284c7;
+  border-color: #0284c7;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon {
+  background-color: #52c41a;
+  border-color: #52c41a;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon>.ant-steps-icon {
+  color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .parent-signup-container {
+    padding: 10px;
+  }
+
+  .signup-card {
+    margin: 0;
+  }
+
+  .signup-header h1 {
+    font-size: 24px;
+  }
+
+  .signup-form {
+    padding: 0 10px;
+  }
+
+  .steps-content {
+    padding: 15px;
+    min-height: 350px;
+  }
+
+  .ant-col {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .signup-steps {
+    margin-bottom: 20px;
+  }
+
+  .ant-steps-item-title {
+    font-size: 12px;
+  }
+
+  .steps-action .ant-btn {
+    min-width: 80px;
+    margin: 0 4px;
+  }
+}

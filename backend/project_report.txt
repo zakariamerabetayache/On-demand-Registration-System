@@ -1,0 +1,83 @@
+# Project Structure Report: HR & Payment Integration
+
+This report provides an overview of the core entities involved in the Human Resources and Payment management system.
+
+## 1. Core Entities Overview
+
+### A. Etablissement (Establishment)
+The root entity that scopes all data within the system.
+- **Concept**: Represents a company or branch. It holds global settings for payments, including the current sequencing and status.
+- **Key Fields**:
+  - `id`: Internal ID.
+  - `designation_ar` / `designation_fr`: Name of the establishment.
+  - `current_payment_number`: The next available sequence number for payments.
+  - `year`: The current fiscal year for payments.
+  - `state`: Global payment state (e.g., 'open' or 'closed').
+  - `wilaya_id` / `commune_id`: Location details.
+  - `rib`: Bank account details for the establishment.
+
+### B. Employee
+Represents staff members linked to an establishment.
+- **Concept**: Stores personal, professional, and payment-related data.
+- **Key Fields**:
+  - `id`: Internal ID.
+  - `nom_ar` / `prenom_ar` (and `fr` versions): Full name.
+  - `etablissement_id`: Scopes the employee to an establishment.
+  - `function_id`: Link to `JobFunction`.
+  - `structure_id`: Link to `Structure`.
+  - `payment_method`: 'bank_account' or 'postal_account'.
+  - `bank_account` / `ccp_account`: Account numbers.
+  - `agency_id`: Link to the bank agency.
+  - `employment_status`: 'active', 'retired', etc.
+
+### C. Service (Payment Components)
+Defines the individual items that make up a payment (e.g., Base Salary, Bonuses, Deductions).
+- **Concept**: Configuration templates for lines in a payment.
+- **Key Fields**:
+  - `id`: Internal ID.
+  - `designation_ar` / `designation_fr`: Name of the bonus/deduction.
+  - `type`: Category (e.g., earning or deduction).
+  - `value`: Fixed amount or base for percentage.
+  - `percentage`: Percentage to apply if applicable.
+  - `etablissement_id`: Scopes the service to an establishment.
+
+### D. Payment
+The actual transaction record for an employee for a specific period.
+- **Concept**: Represents a monthly pay slip or payment event.
+- **Key Fields**:
+  - `id`: Internal ID.
+  - `current_payment_number`: Captured from `Etablissement` at creation time.
+  - `employee_id`: The staff member being paid.
+  - `etablissement_id`: Scopes the payment.
+  - `year` / `month`: The period of the payment.
+  - `state`: Status of this specific payment (e.g., 'pending', 'confirmed').
+  - `open_date`: The date the payment cycle was opened.
+
+### E. LinePayment
+Individual lines within a single `Payment`.
+- **Concept**: Links a `Payment` to a `Service`, storing the actual amount calculated for that period.
+- **Key Fields**:
+  - `payment_id`: Parent payment.
+  - `service_id`: Link to the configuration template.
+  - `montant`: The final calculated amount.
+
+---
+
+## 2. Integration Concept: Connecting Payments with Establishments
+
+To ensure consistency across the system, we connect the `Payment` life cycle directly to the `Etablissement` settings.
+
+### Sequence Management (`current_payment_number`)
+- **Flow**: When a Payment is generated, the system reads the `current_payment_number` from the `Etablissement` table.
+- **Automation**: After a successful payment batch creation, the `current_payment_number` in the `Etablissement` table should be incremented.
+- **Persistence**: Recording the number in each `Payment` entry allows historical tracking of which batch/run a payment belonged to.
+
+### Payment State Workflow (`state`)
+- **Establishment State**: Controls the ability to create or edit payments. If the establishment's state is 'closed', no new payments can be generated for that year/period.
+- **Payment State**: Inherits its initial status from establishment rules but moves independently (e.g., from 'draft' to 'paid').
+
+### Automation Logic
+1. Look up Employee data (Salary, Method, Account).
+2. Fetch active Services (Bonuses/Deductions) for that Etablissement.
+3. Generate a `Payment` record with the current `Etablissement->current_payment_number`.
+4. Create `LinePayment` entries based on the `Service` definitions.

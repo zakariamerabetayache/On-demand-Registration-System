@@ -1,0 +1,80 @@
+# ==========================================
+# Root .gitignore - Registration System
+# ==========================================
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.env
+
+# Dependencies
+/frontend/node_modules/
+/backend/vendor/
+/backend/node_modules/
+node_modules/
+vendor/
+
+# Archives & Temporary Dumps
+*.rar
+*.zip
+*.tar.gz
+*.7z
+backend/backend.rar
+frontend/frontend.rar
+frontend/src.rar
+
+# Frontend Builds & Caches
+/frontend/dist/
+/frontend/dist-ssr/
+/frontend/.vite/
+/frontend/.eslintcache
+
+# Backend Build & Storage
+/backend/public/build/
+/backend/public/hot/
+/backend/public/storage
+/backend/storage/*.key
+/backend/storage/logs/*.log
+/backend/storage/framework/cache/*
+/backend/storage/framework/sessions/*
+/backend/storage/framework/testing/*
+/backend/storage/framework/views/*
+/backend/bootstrap/cache/*.php
+/backend/.phpunit.result.cache
+/backend/.phpunit.cache
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Database & Debug Temp Files
+/backend/debug_query.php
+/backend/fix_explanation.txt
+*.sqlite
+*.db
+
+# OS & Editor Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+!.vscode/extensions.json
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
