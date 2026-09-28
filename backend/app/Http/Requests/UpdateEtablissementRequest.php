@@ -28,6 +28,7 @@ class UpdateEtablissementRequest extends FormRequest
             'wilaya_id' => 'required|exists:wilayas,id',
             'commune_id' => 'required|exists:communes,id',
             'adress' => 'nullable|string',
+            'type' => 'nullable|string',
             'email' => 'nullable|email|max:255',
             'verificationby' => 'boolean',
             'change_token' => 'boolean',

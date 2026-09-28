@@ -1800,6 +1800,11 @@ const lang = {
     hero_description: "الوصف الرئيسي",
     enter_hero_description: "أدخل الوصف الرئيسي للترحيب بالزوار...",
     save_changes: "حفظ التغييرات",
+
+    association: "جمعية",
+    party: "حزب",
+    etablissement_type: "نوع المؤسسة",
+    association_members: "أعضاء الجمعية"
 };
 
 export default lang;

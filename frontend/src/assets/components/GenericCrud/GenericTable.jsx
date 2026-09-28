@@ -22,13 +22,24 @@ export default function GenericTable() {
     const { state, dispatch, config, loadEntities, service } = useCrudContext();
     const { translate } = useLanguage();
 
+    const dataSource = useMemo(() => {
+        return state.entities.map((entity) => ({
+            ...entity,
+            type: entity.type ? translate(entity.type) : undefined,
+            sex: entity.sex ? translate(entity.sex) : undefined,
+            how_benefit: entity.how_benefit ? translate(entity.how_benefit) : undefined,
+        }));
+    }, [state.entities, translate]);
+    console.log("entities" + JSON.stringify(dataSource))
+
+
     const handleEdit = (entity) => {
-        let selectedEntity = state.entities.find((e) => e.id === entity.id);
-        if (!selectedEntity) {
+
+        if (!entity) {
             ErrorHandling("Entity not found");
             return;
         }
-        dispatch({ type: "SHOW_EDIT_MODAL", payload: selectedEntity });
+        dispatch({ type: "SHOW_EDIT_MODAL", payload: entity });
     };
 
     const handleView = (entity) => {
@@ -55,7 +66,7 @@ export default function GenericTable() {
                     render: (text) => moment(text).format("YYYY-MM-DD"),
                 };
             }
-            
+
             const translatedCol = {
                 ...col,
                 title: translate(col.title),
@@ -130,14 +141,7 @@ export default function GenericTable() {
         return cols;
     }, [config, translate, loadEntities]);
 
-    const dataSource = useMemo(() => {
-        return state.entities.map((entity) => ({
-            ...entity,
-            type: entity.type ? translate(entity.type) : undefined,
-            sex: entity.sex ? translate(entity.sex) : undefined,
-            how_benefit: entity.how_benefit ? translate(entity.how_benefit) : undefined,
-        }));
-    }, [state.entities, translate]);
+
 
     const handleTableChange = async (pagination, filters, sorter) => {
         try {

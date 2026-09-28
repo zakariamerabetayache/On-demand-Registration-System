@@ -44,6 +44,11 @@ export const getEtablissementsConfig = (user, translate = (k) => k) => ({
       }
     },
     {
+      title: translate("etablissement_type"),
+      dataIndex: "type",
+      key: "type",
+    },
+    {
       title: translate("email"),
       dataIndex: "email",
       key: "email",
@@ -90,8 +95,8 @@ export const getEtablissementsConfig = (user, translate = (k) => k) => ({
       title: translate("primary_color"),
       dataIndex: "primary_color",
       key: "primary_color",
-      render: (val) => val ? React.createElement('div', { 
-        style: { width: 20, height: 20, background: val, borderRadius: '50%' } 
+      render: (val) => val ? React.createElement('div', {
+        style: { width: 20, height: 20, background: val, borderRadius: '50%' }
       }) : '-',
     },
   ],
@@ -129,6 +134,16 @@ export const getEtablissementsConfig = (user, translate = (k) => k) => ({
       label: "app_name",
       type: "text",
       rules: [{ max: 255, message: "max_255_characters_allowed" }],
+    },
+    {
+      key: "type",
+      label: "type",
+      type: "select",
+      options: [
+        { value: "association", label: "association" },
+        { value: "party", label: "party" },
+      ],
+      rules: [{ required: true, message: "please_select_etablissement_type" }],
     },
     {
       key: "hero_title",

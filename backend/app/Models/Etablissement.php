@@ -27,6 +27,7 @@ class Etablissement extends Model
         'hero_title',
         'hero_description',
         'primary_color',
+        'type',
     ];
 
     protected $casts = [

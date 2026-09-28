@@ -25,6 +25,7 @@ class EtablissementResource extends JsonResource
             'commune_id' => $this->commune_id,
            
             'adress' => $this->adress,
+            'type' => $this->type,
             'email' => $this->email,
             'verificationby' => $this->verificationby,
             'change_token' => $this->change_token,
