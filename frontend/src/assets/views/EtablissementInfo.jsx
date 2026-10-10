@@ -30,8 +30,6 @@ const EtablissementInfo = () => {
     const [wilayas, setWilayas] = useState([]);
     const [communes, setCommunes] = useState([]);
     const [etablissementData, setEtablissementData] = useState(null);
-    console.log("communes", JSON.stringify(communes));
-    console.log("wilayas", JSON.stringify(wilayas));
 
     useEffect(() => {
         fetchInitialData();

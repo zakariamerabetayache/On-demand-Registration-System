@@ -20,9 +20,9 @@ export const LanguageProvider = ({ children }) => {
     try {
       // Get translation from the current language
       const currentTranslations = translations[currentLanguage];
-      
+
       let translation = null;
-      
+
       // Try to find translation with exact key first
       if (currentTranslations && currentTranslations[key]) {
         translation = currentTranslations[key];
@@ -36,7 +36,7 @@ export const LanguageProvider = ({ children }) => {
         const lowerCaseKey = key?.toLowerCase()
           ?.replace(/[^a-zA-Z0-9]/g, "_")
           ?.replace(/ /g, "_");
-        
+
         if (currentTranslations && currentTranslations[lowerCaseKey]) {
           translation = currentTranslations[lowerCaseKey];
         }
@@ -44,7 +44,7 @@ export const LanguageProvider = ({ children }) => {
           translation = translations.en[lowerCaseKey];
         }
       }
-      
+
       // If translation found, interpolate parameters
       if (translation) {
         return Object.keys(params)?.reduce((text, param) => {

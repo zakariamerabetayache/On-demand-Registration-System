@@ -13,7 +13,6 @@ export default function ColorStatus({ onButtonClick, config }) {
       try {
         const counts = await config.loadCount(user?.etablissement_id);
         setCountItem(counts);
-        console.log("counts", JSON.stringify(counts));
       } catch (error) {
         console.error("Error loading counts:", error);
       }

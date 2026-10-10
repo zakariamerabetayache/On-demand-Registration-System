@@ -30,8 +30,6 @@ export default function GenericTable() {
             how_benefit: entity.how_benefit ? translate(entity.how_benefit) : undefined,
         }));
     }, [state.entities, translate]);
-    console.log("entities" + JSON.stringify(dataSource))
-
 
     const handleEdit = (entity) => {
 

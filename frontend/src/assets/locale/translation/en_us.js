@@ -912,17 +912,7 @@ const lang = {
     orders_list: "Orders List",
     order_management: "Order Management",
 
-    // CheckParent component
-    parent_details: "Parent Details",
-    arabic_name: "Arabic Name",
-    latin_name: "Latin Name",
-    arabic_surname: "Arabic Surname",
-    latin_surname: "Latin Surname",
-    email_address: "Email Address",
-    phone_number: "Phone Number",
-    national_id: "National ID Number",
-    gender: "Gender",
-    birth_date: "Birth Date",
+
 
     // File upload translations
     file_uploaded_successfully: "File uploaded successfully",

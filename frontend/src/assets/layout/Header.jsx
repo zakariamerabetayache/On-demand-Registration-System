@@ -11,7 +11,6 @@ import ErrorHandling from "../components/ErrorHandling";
 import digitToDesignation from "../utils/digitToDesignation";
 import logo from "../img/algeria.jpg"
 import LogoDisplay from "./LogoDisplay";
-import UploadFile from "../components/uploadComponent/UploadFile";
 
 export default function Header({ isMobile }) {
   const { isRTL, translate, changeLanguage, currentLanguage } = useLanguage();

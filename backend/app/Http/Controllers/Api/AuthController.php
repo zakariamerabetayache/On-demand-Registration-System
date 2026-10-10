@@ -28,11 +28,11 @@ class AuthController extends Controller
 
        $user=Auth::user();
 
-        if ($user->app_id != $appmode) {
+       
         if ($user->app_id != $appmode) {
             return response(['message' => 'لا تملك حساب في هذه المنصة'], 401); // Return 401 Unauthorized
         }
-       }
+       
 
        $token= $user->createToken('main')->plainTextToken;
         return response(compact('user', 'token'));

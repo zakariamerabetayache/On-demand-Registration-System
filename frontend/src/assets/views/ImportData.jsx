@@ -1,4 +1,4 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useStateContext } from "../contexts/ContextProvider";
 import axiosClient from "../../axios-client";
 import { Upload, Button, Progress, Select } from "antd";
@@ -14,7 +14,6 @@ function ImportData() {
             .get("/user")
             .then(({ data }) => {
                 setUser(data);
-                console.log("Data of today:", data);
             })
             .catch((error) => {
                 console.error("Error fetching user data:", error);
@@ -46,14 +45,12 @@ function ImportData() {
                 },
             })
             .then((response) => {
-                console.log("file réussie");
-                console.log(response.data);
                 setLoading(false);
                 setPercent(0);
             })
-               .catch((error) => {
-                    ErrorHandling(error);
-                });
+            .catch((error) => {
+                ErrorHandling(error);
+            });
 
     };
 
@@ -73,31 +70,31 @@ function ImportData() {
             <h1 style={{ marginBottom: 20, textAlign: "center" }}>
                 استيراد البيانات
             </h1>
-         
 
 
-          
-             <Select
+
+
+            <Select
                 value={route}
                 onChange={handleRouteChange}
                 style={{ width: "100%", marginBottom: 20 }}
             >   <Select.Option disabled={user.role_id != 99} value="/importwilaya">
-                استيراد الولايات
-            </Select.Option>
-            <Select.Option disabled={user.role_id != 99} value="/importcommune">
-                استيراد البلديات
-            </Select.Option>
-            <Select.Option disabled={user.role_id != 1} value={`/importstudent/${user.dou_id}/${user.residence_id}`}>
-                استيراد ملفات الطلاب
-            </Select.Option>
-            <Select.Option disabled={user.role_id == 99}  value="/importpavillon">
-                استيراد الأجنحة
-            </Select.Option>
-            <Select.Option disabled={user.role_id == 99}  value="/importchambre">
-                استيراد الغرف
-            </Select.Option>
-              
-               
+                    استيراد الولايات
+                </Select.Option>
+                <Select.Option disabled={user.role_id != 99} value="/importcommune">
+                    استيراد البلديات
+                </Select.Option>
+                <Select.Option disabled={user.role_id != 1} value={`/importstudent/${user.dou_id}/${user.residence_id}`}>
+                    استيراد ملفات الطلاب
+                </Select.Option>
+                <Select.Option disabled={user.role_id == 99} value="/importpavillon">
+                    استيراد الأجنحة
+                </Select.Option>
+                <Select.Option disabled={user.role_id == 99} value="/importchambre">
+                    استيراد الغرف
+                </Select.Option>
+
+
             </Select>
             <Upload
                 beforeUpload={(file) => {

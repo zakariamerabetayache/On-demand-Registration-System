@@ -58,7 +58,6 @@ const DefaultRedirect = () => {
   if (!user?.id || !user?.role_id) {
     return <Navigate to="/login" />;
   }
-  console.log("user from router" + JSON.stringify(user))
   if (user.id) {
     if (user?.role_id === "admin") {
       return <Navigate to="/mainLayout/users" />;

@@ -30,6 +30,8 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // USER ROUTES
+Route::middleware('auth:sanctum')->group(function () {
+
 Route::get('/users/count/{etablissement_id}', [UserController::class, 'getCount']);
 Route::post('/users/bulk-delete', [UserController::class, 'bulkDelete']);
 Route::get('/users/{id}', [UserController::class, 'index']);
@@ -38,8 +40,10 @@ Route::get('/users/{id}/{user}', [UserController::class, 'show']);
 Route::put('/users/{user}', [UserController::class, 'update']);
 Route::delete('/users/{user}', [UserController::class, 'destroy']);
 Route::apiResource('/users', UserController::class);
+});
 
 // COMMUNES ROUTES
+Route::middleware('auth:sanctum')->group(function () {
 Route::get('/communes/count', [CommuneController::class, 'getCount']);
 Route::post('/communes/bulk-delete', [CommuneController::class, 'bulkDelete']);
 Route::get('/communes/dropdown', [CommuneController::class, 'getAllForDropdown']);
@@ -53,6 +57,7 @@ Route::get('/wilayas/dropdown', [WilayaController::class, 'getAllForDropdown']);
 Route::get('/countlanding', [WilayaController::class, 'countlanding']);
 Route::apiResource('/wilayas', WilayaController::class);
 
+
 // ETABLISSEMENTS ROUTES
 Route::get('/etablissements/count', [EtablissementController::class, 'getCount']);
 Route::post('/etablissements/bulk-delete', [EtablissementController::class, 'bulkDelete']);
@@ -60,6 +65,8 @@ Route::post('/etablissements/{id}/upload-logo', [EtablissementController::class,
 Route::delete('/etablissements/{id}/delete-logo', [EtablissementController::class, 'deleteLogo']);
 Route::put('/etablissements/{id}/parameters', [EtablissementController::class, 'updateParameters']);
 Route::apiResource('/etablissements', EtablissementController::class);
+
+});
 
 // AUTH ROUTES
 Route::post('/signup', [AuthController::class, 'signup']);

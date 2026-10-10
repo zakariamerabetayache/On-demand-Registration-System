@@ -121,7 +121,6 @@ export const getUsersConfig = (user) => ({
       loadOptions: async () => {
         try {
           const etablissements = await etablissementsService.getAllForDropdown();
-          console.log("etablissements from the " + JSON.stringify(etablissements))
           return etablissements;
         } catch (error) {
           ErrorHandling(error);

@@ -5,8 +5,6 @@ const partyMembersService = {
     getAll: async (etablissement_id, params = {}) => {
         try {
             const response = await axiosClient.get(`/party-members-list/${etablissement_id}`, { params });
-            console.log("response from members", JSON.stringify(response))
-
             return response.data;
         } catch (error) {
             ErrorHandling(error);
@@ -56,7 +54,6 @@ const partyMembersService = {
     getCount: async () => {
         try {
             const response = await axiosClient.get(`/party-members/count`);
-            console.log("response from members count", JSON.stringify(response))
             return response.data;
         } catch (error) {
             ErrorHandling(error);

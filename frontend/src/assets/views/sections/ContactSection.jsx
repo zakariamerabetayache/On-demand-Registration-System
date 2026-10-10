@@ -9,7 +9,6 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    console.log('Form values:', values);
     message.success(translate('message_sent') || 'تم إرسال رسالتك بنجاح!');
     form.resetFields();
   };
@@ -33,7 +32,7 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
   ];
 
   return (
-    <section id="contact" className="contact-section" style={{ 
+    <section id="contact" className="contact-section" style={{
       padding: '80px 0',
       backgroundColor: '#fff',
       direction: isRTL ? 'rtl' : 'ltr'
@@ -50,8 +49,8 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
 
         <Row gutter={[48, 48]}>
           <Col xs={24} md={12}>
-            <Card 
-              style={{ 
+            <Card
+              style={{
                 height: '100%',
                 borderRadius: '8px',
                 boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)'
@@ -60,7 +59,7 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
               <Title level={3} style={{ color: '#2c5282', marginBottom: '24px' }}>
                 {translate('send_us_message') || 'أرسل لنا رسالة'}
               </Title>
-              
+
               <Form
                 form={form}
                 layout="vertical"
@@ -90,7 +89,7 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
                     </Form.Item>
                   </Col>
                 </Row>
-                
+
                 <Form.Item
                   name="subject"
                   label={translate('subject') || 'الموضوع'}
@@ -98,23 +97,23 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
                 >
                   <Input placeholder={translate('subject_placeholder') || 'عنوان الرسالة'} size="large" />
                 </Form.Item>
-                
+
                 <Form.Item
                   name="message"
                   label={translate('message') || 'الرسالة'}
                   rules={[{ required: true, message: translate('message_required') || 'الرجاء إدخال الرسالة' }]}
                 >
-                  <TextArea 
-                    rows={6} 
+                  <TextArea
+                    rows={6}
                     placeholder={translate('message_placeholder') || 'اكتب رسالتك هنا...'}
                     style={{ resize: 'none' }}
                   />
                 </Form.Item>
-                
+
                 <div style={{ textAlign: 'left' }}>
-                  <Button 
-                    type="primary" 
-                    htmlType="submit" 
+                  <Button
+                    type="primary"
+                    htmlType="submit"
                     size="large"
                     icon={<SendOutlined />}
                     style={{ minWidth: '200px' }}
@@ -125,7 +124,7 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
               </Form>
             </Card>
           </Col>
-          
+
           <Col xs={24} md={12}>
             <div style={{ marginBottom: '24px' }}>
               <Title level={3} style={{ color: '#2c5282', marginBottom: '24px' }}>
@@ -134,7 +133,7 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
               <Text style={{ fontSize: '16px', color: '#4a5568', display: 'block', marginBottom: '24px' }}>
                 {translate('contact_info_description') || 'يسعدنا تواصلكم معنا عبر القنوات التالية:'}
               </Text>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 {contactInfo.map((item, index) => (
                   <div key={index} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
@@ -158,7 +157,7 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
                 ))}
               </div>
             </div>
-            
+
             <div style={{ marginTop: '32px' }}>
               <Title level={4} style={{ color: '#2c5282', marginBottom: '16px' }}>
                 {translate('support_us') || 'ادعمنا'}
@@ -166,9 +165,9 @@ const ContactSection = ({ translate, isRTL, onInquire, onDonate }) => {
               <Text style={{ display: 'block', marginBottom: '16px', color: '#4a5568' }}>
                 {translate('support_description') || 'يمكنك دعم أنشطتنا وبرامجنا من خلال التبرع'}
               </Text>
-              <Button 
-                type="primary" 
-                size="large" 
+              <Button
+                type="primary"
+                size="large"
                 onClick={onDonate}
                 style={{ backgroundColor: '#38a169', borderColor: '#38a169' }}
               >

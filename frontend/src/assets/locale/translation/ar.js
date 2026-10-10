@@ -925,18 +925,6 @@ const lang = {
     orders_list: "قائمة الطلبات",
     order_management: "إدارة الطلبات",
 
-    // CheckParent component
-    parent_details: "تفاصيل الولي",
-    arabic_name: "الاسم العربي",
-    latin_name: "الاسم اللاتيني",
-    arabic_surname: "اللقب العربي",
-    latin_surname: "اللقب اللاتيني",
-    email_address: "البريد الإلكتروني",
-    phone_number: "رقم الهاتف",
-    national_id: "رقم التعريف الوطني",
-    gender: "الجنس",
-    birth_date: "تاريخ الميلاد",
-
     // File upload translations
     file_uploaded_successfully: "تم رفع الملف بنجاح",
     upload_failed: "فشل في رفع الملف",

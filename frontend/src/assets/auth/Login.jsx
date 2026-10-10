@@ -22,7 +22,6 @@ export default function Login() {
 
     setErrors(null);
     const appmode = localStorage.getItem("appmode");
-    console.log(payload);
     axiosClient
       .post(`/login/${appmode}`, payload)
       .then(({ data }) => {

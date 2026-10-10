@@ -25,7 +25,6 @@ export default function CheckPartyMember({ record, onUpdate }) {
 
         return false;
     };
-    console.log("record o fmeber " + JSON.stringify(record))
     const showImages = record?.identity_image || record?.self_photo;
 
     const handleShow = () => {

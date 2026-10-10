@@ -256,10 +256,6 @@ const GenericDrawer = () => {
             let entityId;
 
             if (state.editingEntity) {
-
-                console.log('formData:', JSON.stringify(formData));
-                console.log('state.editingEntity:', JSON.stringify(state.editingEntity));
-
                 entityId = state.editingEntity.id;
                 response = await service.update(entityId, formData);
 
@@ -330,7 +326,6 @@ const GenericDrawer = () => {
     };
     const renderFormField = (field, fieldKey) => {
         const fieldValue = state.formData[fieldKey];
-        // console.log('Field value fieldValue:', fieldValue);
         const fieldError = state.formErrors[fieldKey];
 
         const handleFieldChangeWrapper = (value) => {
@@ -341,7 +336,6 @@ const GenericDrawer = () => {
                     payload: fieldKey,
                 });
             }
-            console.log('Field change:', fieldKey, value);
             handleFieldChange(fieldKey, value);
         };
 

@@ -12,8 +12,6 @@ export default function CrudFilters() {
   const handleFilterChange = async (key, value) => {
     try {
       let relatedField = config.filters.find((f) => f.relation === key);
-      console.log("relatedField", JSON.stringify(relatedField));
-      console.log("relatedFiel value d", value);
       if (relatedField) {
         let responce = await relatedField.loadOptions(value);
         setDynamicOptions((prev) => ({
@@ -61,7 +59,6 @@ export default function CrudFilters() {
         setLoadingOptions((prev) => ({ ...prev, [filter.key]: true }));
         try {
           const options = await filter.loadOptions();
-          console.log("filter" + JSON.stringify(filter))
           setDynamicOptions((prev) => ({
             ...prev,
             [filter.key]: options,

@@ -64,8 +64,6 @@ const EtablissementParameters = () => {
             const response = await etablissementsService.getById(id);
             // Laravel Resources wrap data in a 'data' key
             const data = response.data || response;
-
-            console.log("Fetched Etablissement Data:", data);
             setEtablissement(data);
 
             // set form values based on API response (force boolean for switches)
@@ -93,12 +91,7 @@ const EtablissementParameters = () => {
      */
     const updateParameter = async (fieldName, checked) => {
         // Debug: Show that function was called
-        console.log("DEBUG: updateParameter called", {
-            fieldName,
-            checked,
-            userEtabId: user?.etablissement?.id,
-            stateEtabId: etablissement?.id
-        });
+
 
 
 
@@ -135,11 +128,6 @@ const EtablissementParameters = () => {
 
             const parameterData = { [fieldName]: valueToUpdate };
 
-            console.log(`Updating ${fieldName} with value:`, valueToUpdate);
-
-
-
-
             const updateResponse = await etablissementsService.updateParameters(etablissementId, parameterData);
             const updatedEtab = updateResponse.etablissement || updateResponse.data || updateResponse;
 
@@ -163,8 +151,6 @@ const EtablissementParameters = () => {
                 key: fieldName,
                 duration: 2,
             });
-
-            console.log(`✅ Successfully updated ${fieldName}`, parameterData);
         } catch (error) {
             ErrorHandling(error);
 
@@ -185,7 +171,6 @@ const EtablissementParameters = () => {
                 }
 
                 form.setFieldsValue({ [fieldName]: revertValue });
-                console.log(`❌ Reverted ${fieldName} to`, revertValue);
             }
         } finally {
             setUpdatingFields((prev) => ({ ...prev, [fieldName]: false }));
@@ -281,7 +266,6 @@ const EtablissementParameters = () => {
                             checkedChildren={checkedChildren}
                             unCheckedChildren={unCheckedChildren}
                             onChange={(checked) => {
-                                console.log(`🔄 Switch onChange fired: ${name} = ${checked}`);
                                 if (onChange && typeof onChange === 'function') {
                                     onChange(name, checked);
                                 } else {
@@ -429,40 +413,40 @@ const EtablissementParameters = () => {
                 }}
             >
                 <div>
-                  <Title level={4} style={{ marginBottom: 16 }}>{translate('landing_page_config') || 'Landing Page Configuration'}</Title>
-                  <Text type="secondary" style={{ display: 'block', marginBottom: 24 }}>
-                    {translate('landing_page_config_desc') || 'Customize the white-label components for the main public landing page.'}
-                  </Text>
-                  
-                  <Form form={whiteLabelForm} layout="vertical" onFinish={handleWhiteLabelFinish}>
-                    <Row gutter={16}>
-                        <Col span={12}>
-                            <Form.Item name="app_name" label={translate('app_name') || 'Application Name'}>
-                                <Input size="large" placeholder={translate('enter_app_name') || 'E.g. TrackLife portal'} />
-                            </Form.Item>
-                        </Col>
-                        <Col span={12}>
-                            <Form.Item name="primary_color" label={translate('primary_color') || 'Primary Color'}>
-                                <ColorPicker size="large" showText />
-                            </Form.Item>
-                        </Col>
-                        <Col span={24}>
-                            <Form.Item name="hero_title" label={translate('hero_title') || 'Hero Title'}>
-                                <Input size="large" placeholder={translate('enter_hero_title') || 'Welcome to...'} />
-                            </Form.Item>
-                        </Col>
-                        <Col span={24}>
-                            <Form.Item name="hero_description" label={translate('hero_description') || 'Hero Description'}>
-                                <Input.TextArea size="large" rows={3} placeholder={translate('enter_hero_description') || 'Join our powerful community...'} />
-                            </Form.Item>
-                        </Col>
-                    </Row>
-                    <Form.Item style={{ marginBottom: 0, textAlign: 'right' }}>
-                        <Button type="primary" htmlType="submit" size="large" loading={whiteLabelUpdating}>
-                            {translate('save_changes') || 'Save Changes'}
-                        </Button>
-                    </Form.Item>
-                  </Form>
+                    <Title level={4} style={{ marginBottom: 16 }}>{translate('landing_page_config') || 'Landing Page Configuration'}</Title>
+                    <Text type="secondary" style={{ display: 'block', marginBottom: 24 }}>
+                        {translate('landing_page_config_desc') || 'Customize the white-label components for the main public landing page.'}
+                    </Text>
+
+                    <Form form={whiteLabelForm} layout="vertical" onFinish={handleWhiteLabelFinish}>
+                        <Row gutter={16}>
+                            <Col span={12}>
+                                <Form.Item name="app_name" label={translate('app_name') || 'Application Name'}>
+                                    <Input size="large" placeholder={translate('enter_app_name') || 'E.g. TrackLife portal'} />
+                                </Form.Item>
+                            </Col>
+                            <Col span={12}>
+                                <Form.Item name="primary_color" label={translate('primary_color') || 'Primary Color'}>
+                                    <ColorPicker size="large" showText />
+                                </Form.Item>
+                            </Col>
+                            <Col span={24}>
+                                <Form.Item name="hero_title" label={translate('hero_title') || 'Hero Title'}>
+                                    <Input size="large" placeholder={translate('enter_hero_title') || 'Welcome to...'} />
+                                </Form.Item>
+                            </Col>
+                            <Col span={24}>
+                                <Form.Item name="hero_description" label={translate('hero_description') || 'Hero Description'}>
+                                    <Input.TextArea size="large" rows={3} placeholder={translate('enter_hero_description') || 'Join our powerful community...'} />
+                                </Form.Item>
+                            </Col>
+                        </Row>
+                        <Form.Item style={{ marginBottom: 0, textAlign: 'right' }}>
+                            <Button type="primary" htmlType="submit" size="large" loading={whiteLabelUpdating}>
+                                {translate('save_changes') || 'Save Changes'}
+                            </Button>
+                        </Form.Item>
+                    </Form>
                 </div>
             </Card>
         </div>
