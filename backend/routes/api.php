@@ -64,9 +64,10 @@ Route::post('/etablissements/bulk-delete', [EtablissementController::class, 'bul
 Route::post('/etablissements/{id}/upload-logo', [EtablissementController::class, 'uploadLogo']);
 Route::delete('/etablissements/{id}/delete-logo', [EtablissementController::class, 'deleteLogo']);
 Route::put('/etablissements/{id}/parameters', [EtablissementController::class, 'updateParameters']);
-Route::apiResource('/etablissements', EtablissementController::class);
 
 });
+Route::apiResource('/etablissements', EtablissementController::class);
+
 
 // AUTH ROUTES
 Route::post('/signup', [AuthController::class, 'signup']);

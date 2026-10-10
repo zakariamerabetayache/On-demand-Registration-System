@@ -52,7 +52,7 @@ function Sidebar({ collapsible }) {
             key: "party_members",
             icon: <TeamOutlined />,
             label: <Link to={"/mainLayout/party-members"}>
-                {user.etablissement.type == "party" ? translate('party_members') : translate('association_members')}
+                {user?.etablissement?.type == "party" ? translate('party_members') : translate('association_members')}
             </Link>,
             roles: ["national_admin", "wilaya_admin"],
             category: "main"

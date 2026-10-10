@@ -39,7 +39,6 @@ const EtablissementParameters = () => {
     const [updatingFields, setUpdatingFields] = useState({});
     const [etablissement, setEtablissement] = useState(null);
     const { user, setUser } = useStateContext();
-    console.log
 
     useEffect(() => {
         fetchEtablissement();
