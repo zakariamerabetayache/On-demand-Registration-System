@@ -10,7 +10,6 @@ const lang = {
     register: "S'inscrire",
     or: "Ou",
     already_have_account_login: "Vous avez déjà un compte ? Connexion",
-    name: "Nom",
     email: "E-mail",
     password: "Mot de passe",
     country: "Pays",
@@ -18,27 +17,18 @@ const lang = {
 
     // Navigation
     home: "Accueil",
-    about: "À propos",
-    products: "Produits",
     services: "Services",
-    contact: "Nous contacter",
     dashboard: "Tableau de bord",
     profile: "Profil",
     settings: "Paramètres",
     logout: "Déconnexion",
     login: "Connexion",
-    features: "Fonctionnalités",
     pricing: "Tarification",
-    support: "Support",
     customers: "Clients",
-    users_list: "Utilisateurs",
-    user: "Utilisateur",
     users: "Utilisateurs",
     chambers_list: "Chambres",
-    products: "Produits",
     invoices: "Factures",
     quote: "Devis",
-    payments: "Paiements",
     payments_mode: "Modes de paiement",
     taxes: "Taxes",
     profile_settings: "Paramètres du profil",
@@ -46,37 +36,15 @@ const lang = {
 
     // Common actions
     save: "Enregistrer",
-    cancel: "Annuler",
-    delete: "Supprimer",
-    edit: "Modifier",
-    add: "Ajouter",
-    update: "Mettre à jour",
     submit: "Soumettre",
     search: "Rechercher",
     filter: "Filtrer",
-    sort: "Trier",
-    view: "Voir",
-    actions: "Actions",
-    refresh: "Actualiser",
-    add_new: "Ajouter nouveau",
 
     // CRUD specific
-    add_new_item: "Ajouter un nouvel élément",
-    edit_item: "Modifier l'élément",
-    item_details: "Détails de l'élément",
-    details: "Détails",
-    this_item: "cet élément",
-    delete_confirmation_message:
-        "Êtes-vous sûr de vouloir supprimer {item} ? Cette action ne peut pas être annulée.",
-    delete_warning: "Cette action ne peut pas être annulée.",
-    created_at: "Créé le",
     updated_at: "Mis à jour le",
-    showing_entries: "Affichage de {start} à {end} sur {total} entrées",
 
     // User fields
-    first_name: "Prénom",
     family_name: "Nom de famille",
-    role: "Rôle",
     owner: "Propriétaire",
     client: "Client",
 
@@ -92,14 +60,6 @@ const lang = {
     role_required: "Le rôle est requis",
 
     // Messages
-    success: "Succès",
-    error: "Erreur",
-    warning: "Avertissement",
-    info: "Information",
-    loading: "Chargement...",
-    no_data: "Aucune donnée disponible",
-    confirm_delete: "Êtes-vous sûr de vouloir supprimer ?",
-    ok: "OK",
 
     // Error handling messages
     network_error: "Erreur réseau",
@@ -112,7 +72,6 @@ const lang = {
     forbidden: "Accès refusé",
     forbidden_message: "Vous n'avez pas la permission d'accéder à cette ressource.",
     contact_admin: "Veuillez contacter votre administrateur si vous pensez qu'il s'agit d'une erreur.",
-    not_found: "Non trouvé",
     not_found_message: "La ressource demandée n'a pas été trouvée ou a été déplacée.",
     check_url: "Veuillez vérifier l'URL et réessayer.",
     server_error: "Erreur serveur",
@@ -120,13 +79,8 @@ const lang = {
     try_again_later: "Veuillez réessayer dans quelques minutes.",
     unknown_error: "Une erreur inconnue s'est produite",
     error_occurred: "Erreur",
-    contact_support: "Si le problème persiste, veuillez contacter le support.",
 
     // Form validation
-    required_field: "Ce champ est requis",
-    invalid_email: "Adresse e-mail invalide",
-    min_length_error: "La longueur minimale est de {min} caractères",
-    max_length_error: "La longueur maximale est de {max} caractères",
 
     // CRUD Operations
     users_list: "Liste des utilisateurs",
@@ -135,8 +89,6 @@ const lang = {
     add_new_item: "Ajouter un nouvel élément",
     edit_item: "Modifier l'élément",
     item_details: "Détails de l'élément",
-    view: "Voir",
-    actions: "Actions",
     refresh: "Actualiser",
     showing_entries: "Affichage de {start} à {end} sur {total} entrées",
 
@@ -336,16 +288,13 @@ const lang = {
     zimbabwe: "Zimbabwe",
 
     // General
-    details: "Détails",
     sort: "Trier",
     // Messages
     success: "Succès",
-    error: "Erreur",
     warning: "Avertissement",
     info: "Information",
     loading: "Chargement...",
     no_data: "Aucune donnée disponible",
-    confirm_delete: "Êtes-vous sûr de vouloir supprimer ?",
     // Form validation
     required_field: "Ce champ est requis",
     invalid_email: "Adresse e-mail invalide",
@@ -368,12 +317,9 @@ const lang = {
 
     // Chamber fields
     chamber_name: "Nom de la chambre",
-    description: "Description",
     capacity: "Capacité",
     price_per_hour: "Prix par heure",
     building: "Bâtiment",
-    status: "Statut",
-    active: "Actif",
     available: "Disponible",
     occupied: "Occupé",
     maintenance: "Maintenance",
@@ -381,8 +327,6 @@ const lang = {
     chamber_details: "Détails de la chambre",
 
     // Products CRUD
-    product: "Produit",
-    product_name: "Nom du produit",
     product_description: "Description du produit",
     product_price: "Prix du produit",
     product_category: "Catégorie du produit",
@@ -405,18 +349,11 @@ const lang = {
     failed_to_load_products: "Échec du chargement des produits",
 
     // Productions (intage)
-    productions: "Productions",
-    production: "Production",
-    production_date: "Date de production",
     contutie_produit: "Quantité produite",
-    produit_state: "État du produit",
     please_enter_production_date: "Veuillez saisir la date de production",
     please_select_produit: "Veuillez sélectionner le produit",
     please_enter_contutie_produit: "Veuillez saisir la quantité produite",
     please_select_produit_state: "Veuillez sélectionner l'état du produit",
-    good_state: "Bon - Intact",
-    repairable_state: "Réparable",
-    damaged_state: "Endommagé",
     productions_statistics: "Statistiques des productions",
     production_created_successfully: "Production créée avec succès",
     production_updated_successfully: "Production mise à jour avec succès",
@@ -424,9 +361,6 @@ const lang = {
     productions_deleted_successfully: "Productions supprimées avec succès",
 
     // Stocks
-    stocks: "Stocks",
-    stock: "Stock",
-    stock_state: "État du stock",
     contutie: "Quantité",
     please_enter_contutie: "Veuillez saisir la quantité",
     please_select_stock_state: "Veuillez sélectionner l'état du stock",
@@ -437,66 +371,36 @@ const lang = {
     stocks_deleted_successfully: "Stocks supprimés avec succès",
 
     // Delete confirmation
-    confirm_delete: "Confirmer la suppression",
     delete_confirmation_message: "Êtes-vous sûr de vouloir supprimer {item} ?",
     delete_warning: "Cette action ne peut pas être annulée.",
     this_item: "cet élément",
-    actions: "Actions",
-    view: "Voir",
     deleted_successfully: "Supprimé avec succès",
     failed_to_delete: "Échec de la suppression",
     are_you_sure_delete: "Êtes-vous sûr de vouloir supprimer ceci",
-    yes: "Oui",
-    no: "Non",
 
     // Product Categories
-    electronics: "Électronique",
-    accessories: "Accessoires",
-    furniture: "Mobilier",
-    software: "Logiciel",
 
     // Status translations
-    status: "Statut",
 
     // Product Status
-    active: "Actif",
-    inactive: "Inactif",
-    out_of_stock: "Rupture de stock",
-    low_stock: "Stock faible",
 
     // Common Status Values
     enabled: "Activé",
     disabled: "Désactivé",
-    pending: "En attente",
     approved: "Approuvé",
     rejected: "Rejeté",
-    draft: "Brouillon",
-    published: "Publié",
     archived: "Archivé",
     file_already_uploaded: "Déjà téléchargé",
     update_file: "Mettre à jour le fichier",
     deadline: "Date limite",
     pending_submissions: "Soumissions en attente",
-    file_uploaded_successfully: "Fichier téléchargé avec succès",
-    upload_failed: "Échec du téléchargement",
 
     // Form validation
     please_enter_user_id: "Veuillez saisir l'ID utilisateur",
-    please_select_user: "Veuillez sélectionner un utilisateur",
-    please_enter_product_name: "Veuillez saisir le nom du produit",
-    please_enter_description: "Veuillez saisir la description",
-    please_enter_price: "Veuillez saisir le prix",
-    please_select_category: "Veuillez sélectionner une catégorie",
-    please_enter_stock_quantity: "Veuillez saisir la quantité en stock",
-    please_select_status: "Veuillez sélectionner un statut",
 
     // Table headers
     user: "Utilisateur",
     name: "Nom",
-    description: "Description",
-    price: "Prix",
-    category: "Catégorie",
-    stock: "Stock",
     actions: "Actions",
 
     // Filters
@@ -507,14 +411,10 @@ const lang = {
 
     // Pagination
     items: "éléments",
-    of: "de",
 
     // Confirmation messages
     are_you_sure_delete_product: "Êtes-vous sûr de vouloir supprimer ce produit ?",
     this_action_cannot_be_undone: "Cette action ne peut pas être annulée.",
-    yes: "Oui",
-    no: "Non",
-    close: "Fermer",
 
     // Common actions
     select: "Sélectionner",
@@ -525,39 +425,24 @@ const lang = {
     add: "Ajouter",
     create: "Créer",
     update: "Mettre à jour",
-    cancel: "Annuler",
 
     // User fields
     nom_ar: "Nom de famille en arabe",
     nom_fr: "Nom de famille en français",
     prenom_ar: "Prénom en arabe",
     prenom_fr: "Prénom en français",
-    role: "Rôle",
     application: "Application",
     admin: "Administrateur",
-    manager: "Gestionnaire",
     staff: "Personnel",
     student: "Étudiant",
     main_app: "Application principale",
     secondary_app: "Application secondaire",
     mobile_app: "Application mobile",
-    please_enter_nom_ar: "Veuillez saisir le nom de famille en arabe",
-    please_enter_nom_fr: "Veuillez saisir le nom de famille en français",
-    please_enter_prenom_ar: "Veuillez saisir le prénom en arabe",
-    please_enter_prenom_fr: "Veuillez saisir le prénom en français",
-    please_enter_email: "Veuillez saisir l'e-mail",
-    please_enter_valid_email: "Veuillez saisir un e-mail valide",
-    please_enter_password: "Veuillez saisir le mot de passe",
-    password_min_6_characters: "Le mot de passe doit contenir au moins 6 caractères",
     please_select_role: "Veuillez sélectionner un rôle",
     please_select_application: "Veuillez sélectionner une application",
 
     // Role labels for users system
-    administrator: "Administrateur",
-    production_agent: "Agent de production",
     salesperson: "Commercial",
-    counter_seller: "Vendeur au comptoir",
-    seller_production: "Ventes et production",
     all: "Tous",
 
     // Password confirmation
@@ -565,7 +450,6 @@ const lang = {
     please_enter_password_confirmation: "Veuillez saisir la confirmation du mot de passe",
 
     // Additional user role translations
-    seller: "Vendeur",
 
     // Landing page translations
     company_name: "Jestion Commercial",
@@ -609,7 +493,6 @@ const lang = {
     guaranteed_security_desc: "Vos données sont protégées par les plus hauts standards de sécurité",
 
     // Footer
-    footer_description: "La solution complète pour optimiser votre gestion commerciale et développer votre entreprise.",
     useful_links: "Liens utiles",
     support: "Support",
     documentation: "Documentation",
@@ -617,14 +500,10 @@ const lang = {
     email_contact: "Email: contact@jestion.com",
     phone_contact: "Téléphone: +33 1 23 45 67 89",
     address_contact: "Adresse: 123 Rue de la Tech, Paris",
-    all_rights_reserved: "© 2025 pack design. Tous droits réservés.",
 
     // Wilayas and Communes
-    wilayas: "Wilayas",
-    communes: "Communes",
     wilaya: "Wilaya",
     commune: "Commune",
-    designation: "Désignation",
     nb_wilaya: "Numéro de Wilaya",
     postalw: "Code Postal (Wilaya)",
     postalc: "Code Postal (Commune)",
@@ -644,11 +523,7 @@ const lang = {
     product: "Produit",
     product_name: "Nom du Produit",
     price: "Prix",
-    category: "Catégorie",
     stock_quantity: "Quantité en Stock",
-    status: "Statut",
-    active: "Actif",
-    inactive: "Inactif",
     out_of_stock: "Rupture de Stock",
     low_stock: "Stock Faible",
     electronics: "Électronique",
@@ -663,19 +538,11 @@ const lang = {
     please_select_user: "Veuillez sélectionner l'utilisateur",
 
     // Etablissements
-    etablissements: "Établissements",
     etablissement: "Établissement",
-    designation_ar: "Nom en Arabe",
-    designation_fr: "Nom en Français",
     users_count: "Nombre d'Utilisateurs",
     with_users: "Avec Utilisateurs",
     without_users: "Sans Utilisateurs",
-    please_enter_designation_ar: "Veuillez saisir le nom en arabe",
-    please_enter_designation_fr: "Veuillez saisir le nom en français",
     please_select_commune: "Veuillez sélectionner la commune",
-    parameter_updated: "Paramètre mis à jour avec succès",
-    manage_establishment_settings_desc: "Configurez la manière dont votre établissement gère les processus de vérification et de validation.",
-    changes_saved_automatically: "Toutes les modifications sont enregistrées automatiquement",
     price_must_be_positive: "Le prix doit être positif",
 
     // Unite Mesures translations
@@ -766,11 +633,9 @@ const lang = {
     non_compliant_price: "Prix Non Conforme",
 
     // Account approval messages
-    account_pending_approval: "Compte en attente d'approbation",
     we_will_review_your_request: "Nous examinerons votre demande et vous répondrons dès que possible.",
     status_under_review: "En cours d'examen",
     need_help: "Besoin d'aide ?",
-    contact_support: "Contacter le Support",
 
     // User role translations
     administrator: "Administrateur",
@@ -804,8 +669,6 @@ const lang = {
     file_selected: "Fichier sélectionné",
     uploading_progress: "Téléchargement en cours...",
     upload_complete: "Téléchargement Terminé",
-    yes: "Oui",
-    no: "Non",
     logo_available_after_creation: "Le logo peut être ajouté après la création de l'établissement",
 
     // Etablissement Info
@@ -813,34 +676,22 @@ const lang = {
     etablissement_updated_successfully: "Établissement mis à jour avec succès",
     no_etablissement_assigned: "Aucun établissement assigné à votre compte",
     payment_settings: "Paramètres de paiement",
-    current_payment_number: "Numéro de paiement actuel",
-    year: "Année",
-    state: "État",
-    open: "Ouvert",
-    close: "Fermé",
     please_enter_current_payment_number: "Veuillez saisir le numéro de paiement actuel",
     please_enter_year: "Veuillez saisir l'année",
-    please_select_state: "Veuillez sélectionner l'état",
-    rib: "RIB/Numéro de compte",
 
     // Childcare Center Translations
     // Landing Page - Childcare Center
     childcare_center: "Centre de la Petite Enfance",
     nurturing_future_leaders: "Former les leaders de demain",
     safe_loving_environment: "Un environnement sûr et bienveillant",
-    professional_childcare_description: "Soins professionnels pour la petite enfance avec amour, attention et programmes éducatifs adaptés au développement de votre enfant.",
     register_as_parent: "S'inscrire comme Parent",
     staff_login: "Connexion Personnel",
     trusted_by_families: "Fait confiance par plus de 250 familles",
-    years_experience: "15+ années d'expérience",
     qualified_educators: "Éducateurs qualifiés",
 
     // Services/Features
-    our_childcare_services: "Nos Services de Garde",
-    comprehensive_care_description: "Services complets de soins et d'éducation conçus pour favoriser le développement de votre enfant dans un environnement sûr et aimant",
     early_childhood_education: "Éducation de la Petite Enfance",
     early_education_desc: "Programmes d'apprentissage précoce adaptés à l'âge pour stimuler la curiosité et la créativité de votre enfant.",
-    nutritious_meals: "Repas Nutritifs",
     nutritious_meals_desc: "Repas équilibrés et collations saines préparés quotidiennement par nos nutritionnistes qualifiés.",
     safe_environment: "Environnement Sécurisé",
     safe_environment_desc: "Installations sécurisées avec surveillance 24h/24 et protocoles de sécurité stricts pour votre tranquillité d'esprit.",
@@ -852,10 +703,6 @@ const lang = {
     parent_communication_desc: "Mises à jour régulières et communication ouverte sur les progrès et les activités de votre enfant.",
 
     // Stats Section
-    happy_children: "Enfants Heureux",
-    qualified_staff: "Personnel Qualifié",
-    years_of_experience: "Années d'Expérience",
-    parent_satisfaction: "Satisfaction des Parents",
 
     // About Section - Childcare
     about_childcare_center: "À Propos de Notre Centre",
@@ -869,18 +716,12 @@ const lang = {
 
     // CTA Section
     ready_best_care: "Prêt à Offrir les Meilleurs Soins à Votre Enfant ?",
-    join_loving_community: "Rejoignez notre communauté bienveillante dès aujourd'hui. Inscrivez-vous comme parent pour commencer, ou contactez-nous pour en savoir plus sur nos programmes et services.",
     questions_contact: "Des questions ? Appelez-nous au (555) 123-4567 ou envoyez un e-mail à info@childcarecenter.com",
 
     // Footer - Childcare
     childcare_center_name: "Centre de la Petite Enfance",
     nurturing_future_tagline: "Former l'avenir de votre enfant avec amour, soins et éducation professionnelle. Un partenaire de confiance dans le parcours de développement de votre enfant.",
-    quick_links: "Liens Rapides",
-    our_services: "Nos Services",
-    about_us: "À Propos",
-    parent_registration: "Inscription Parent",
     contact_support: "Support Contact",
-    contact_information: "Informations de Contact",
     email_info: "E-mail : info@childcarecenter.com",
     phone_info: "Téléphone : (555) 123-4567",
     address_info: "Adresse : 123 Rue des Soins, Ville, État 12345",
@@ -889,15 +730,10 @@ const lang = {
 
     // Parent System
     parent: "Parent",
-    parents: "Parents",
     associate: "Associé",
     associates: "Associés",
     companion: "Accompagnateur",
-    companions: "Accompagnateurs",
-    child: "Enfant",
-    children: "Enfants",
     add_companion: "Ajouter Accompagnateur",
-    add_child: "Ajouter Enfant",
     manage_companions: "Gérer les Accompagnateurs",
     manage_children: "Gérer les Enfants",
 
@@ -906,7 +742,6 @@ const lang = {
     welcome_back: "Bienvenue",
     parent_dashboard_description: "Gérez vos accompagnateurs et enfants depuis votre tableau de bord personnel.",
     total_companions: "Total Accompagnateurs",
-    total_children: "Total Enfants",
     manage_companions_description: "Ajoutez et gérez les personnes autorisées à accompagner vos enfants.",
     manage_children_description: "Ajoutez et gérez les informations de vos enfants inscrits au centre.",
     recent_items: "Éléments récents",
@@ -936,9 +771,6 @@ const lang = {
 
     // Gender
     sex: "Sexe",
-    male: "Masculin",
-    female: "Féminin",
-    please_select_sex: "Veuillez sélectionner le sexe",
 
     // Blood types for children
     blood_type_a_positive: "A+",
@@ -965,9 +797,6 @@ const lang = {
     select_blood_type: "Sélectionner le groupe sanguin",
     please_select_date_nais: "Veuillez sélectionner la date de naissance",
     select_date_nais: "Sélectionner la date de naissance",
-    select_residence_commune: "Sélectionner la Commune de Résidence",
-    age: "Âge",
-    years: "ans",
     months: "mois",
 
     // General translations
@@ -983,9 +812,6 @@ const lang = {
     // Payment translations
     no_child_assigned: "Aucun enfant assigné",
     add_child: "Ajouter un enfant",
-    view_receipt: "Voir le reçu",
-    payment_id: "ID de paiement",
-    child: "Enfant",
 
     // Device Management Translations
     devices: "Appareils",
@@ -1015,7 +841,6 @@ const lang = {
     owner_name_fr: "Nom du Propriétaire en Français",
     owner_last_name_ar: "Nom de Famille du Propriétaire en Arabe",
     owner_last_name_fr: "Nom de Famille du Propriétaire en Français",
-    rip: "Numéro d'Identification Fiscale",
     owner_name_ar_max_255: "Le nom du propriétaire en arabe doit contenir moins de 255 caractères",
     owner_name_fr_max_255: "Le nom du propriétaire en français doit contenir moins de 255 caractères",
     owner_last_name_ar_max_255: "Le nom de famille du propriétaire en arabe doit contenir moins de 255 caractères",
@@ -1025,19 +850,14 @@ const lang = {
     // Admin Views
     parents: "Parents",
     companions: "Accompagnateurs",
-    children: "Enfants",
 
     // Landing Page Additional Translations
-    child_development_tracking: "Suivi du développement de l'enfant",
     child_development_description: "Surveillez la croissance, les étapes et les progrès d'apprentissage de votre enfant avec des rapports et des insights détaillés.",
-    safe_secure_environment: "Environnement sûr et sécurisé",
     safe_environment_description: "Systèmes de sécurité de pointe, personnel vérifié et protocoles de sécurité complets.",
-    professional_caregivers: "Éducateurs professionnels",
     professional_caregivers_description: "Éducateurs qualifiés et expérimentés dédiés à nourrir le développement physique et émotionnel de votre enfant.",
     educational_programs: "Programmes éducatifs",
     educational_programs_description: "Activités d'apprentissage adaptées à l'âge, jeu créatif et programmes structurés pour améliorer le développement cognitif.",
     parent_communication_description: "Mises à jour en temps réel, photos, rapports quotidiens et communication directe avec les éducateurs de votre enfant.",
-    nutritious_meals: "Repas nutritifs",
     nutritious_meals_description: "Repas sains et équilibrés préparés par des nutritionnistes certifiés pour soutenir la croissance de votre enfant.",
     our_childcare_services: "Nos services de garde d'enfants",
     comprehensive_care_description: "Services de soins et d'éducation complets conçus pour nourrir le développement de votre enfant dans un environnement sûr et aimant.",
@@ -1054,18 +874,14 @@ const lang = {
     questions_contact_us: "Des questions ? Appelez-nous au (555) 123-4567 ou écrivez-nous à info@childcarecenter.com",
     footer_description: "Nourrir l'avenir de votre enfant avec amour, soins et éducation professionnelle. Un partenaire de confiance dans le parcours de développement de votre enfant.",
     quick_links: "Liens rapides",
-    parent_registration: "Inscription des parents",
 
     // Parent orders
     parent_orders: "Commandes des parents",
-    parent_order: "Commande parent",
     order_details: "Détails de la commande",
     order_description: "Description de la commande",
-    order_type: "Type de commande",
     order_state: "État de la commande",
     pdf_state: "État du fichier",
     created_at: "Date de création",
-    parent_name: "Nom du parent",
     creator_name: "Nom du créateur",
     summon_order: "Ordre de convocation",
     file_order: "Commande de fichier",
@@ -1088,7 +904,6 @@ const lang = {
     confirm_delete_order: "Êtes-vous sûr de vouloir supprimer cette commande ?",
     search_orders: "Rechercher dans les commandes...",
     filter_by_type: "Filtrer par type",
-    filter_by_state: "Filtrer par état",
     filter_by_parent: "Filtrer par parent",
     all_types: "Tous les types",
     all_states: "Tous les états",
@@ -1099,30 +914,13 @@ const lang = {
 
     // CheckParent component
     parent_details: "Détails du parent",
-    arabic_name: "Nom arabe",
-    latin_name: "Nom latin",
-    arabic_surname: "Nom de famille arabe",
-    latin_surname: "Nom de famille latin",
-    email_address: "Adresse e-mail",
-    phone_number: "Numéro de téléphone",
-    national_id: "Numéro d'identité nationale",
-    gender: "Genre",
-    birth_date: "Date de naissance",
-    certificate_number: "Numéro de certificat",
-    male: "Masculin",
-    female: "Féminin",
-    not_specified: "Non spécifié",
     account_status: "Statut du compte",
-    active: "Actif",
-    inactive: "Inactif",
     account_activated_message: "Compte activé - le parent peut accéder au système",
     account_deactivated_message: "Compte non activé - nécessite l'approbation de l'administration",
     activate_deactivate: "Activer/Désactiver",
 
     // Form validation messages
-    please_select_order_type: "Veuillez sélectionner un type de commande",
     select_order_type: "Sélectionner le type de commande",
-    please_enter_description: "Veuillez saisir une description de la commande",
     enter_order_description: "Entrez la description de la commande",
 
     // GuestLayout Features - Staff Mode
@@ -1137,7 +935,6 @@ const lang = {
 
     // GuestLayout Content - Staff Mode
     staff_administration: "Personnel et Administration",
-    childcare_management_system: "Système de Gestion de Crèche",
     staff_platform_description: "Plateforme complète pour le personnel de crèche pour gérer les enfants, les parents et les opérations quotidiennes avec des outils et des rapports avancés",
 
     // GuestLayout Content - Parent Mode
@@ -1146,10 +943,8 @@ const lang = {
     parent_platform_description: "Restez connecté avec les activités quotidiennes de votre enfant, ses étapes de croissance et communiquez directement avec les soignants dans un environnement sûr et aimant",
 
     // Name fields
-    last_name: "Nom de famille",
 
     // Parent state management
-    check: "Vérifier",
     parent_activated_successfully: "Parent activé avec succès",
     parent_deactivated_successfully: "Parent désactivé avec succès",
     error_updating_parent_state: "Erreur lors de la mise à jour de l'état du parent",
@@ -1167,7 +962,6 @@ const lang = {
     amount_to_pay: "Montant à payer",
     receipt_uploaded: "Reçu téléchargé",
     replace_receipt: "Remplacer le reçu",
-    view_receipt: "Voir le reçu",
     upload_payment_receipt: "Télécharger le reçu de paiement",
     payment_verification_note: "Après avoir téléchargé votre reçu, notre équipe vérifiera votre paiement dans les 24-48 heures.",
     receipt_uploaded_successfully: "Reçu téléchargé avec succès",
@@ -1180,9 +974,7 @@ const lang = {
     payment_receipt: "Reçu de paiement",
     payment_state_updated: "État du paiement mis à jour avec succès",
     failed_to_update_state: "Échec de la mise à jour de l'état du paiement",
-    confirm_state_change: "Confirmer le changement d'état?",
     state_change_description: "Cela mettra à jour le statut de paiement du parent.",
-    no_receipt: "Aucun reçu",
     image_file: "Image",
     pdf_file: "Fichier PDF",
     invalid_file_type: "Veuillez télécharger un fichier PDF, JPG ou PNG",
@@ -1192,37 +984,17 @@ const lang = {
     parent_registration: "Inscription des Parents",
     join_childcare_community: "Rejoignez notre communauté de crèche",
     personal_information_identity: "Informations Personnelles et Identité",
-    contact_information: "Informations de Contact",
-    address_information: "Informations d'Adresse",
-    account_setup: "Configuration du Compte",
 
     // Personal Information Fields
-    last_name_arabic: "Nom de Famille (Arabe)",
-    last_name_french: "Nom de Famille (Français)",
-    first_name_arabic: "Prénom (Arabe)",
-    first_name_french: "Prénom (Français)",
-    date_of_birth: "Date de Naissance",
-    gender: "Sexe",
-    certificate_number: "Numéro de Certificat",
-    national_id_number: "Numéro d'Identité Nationale",
     national_identity_information: "Informations d'Identité Nationale",
 
     // Contact Information Fields
-    phone_number: "Numéro de Téléphone",
-    email_address: "Adresse E-mail",
-    identity_document: "Document d'Identité",
-    upload_identity_document: "Télécharger le Document d'Identité",
 
     // Address Information Fields
     address: "Adresse",
     full_address: "Adresse Complète",
-    birth_wilaya: "Wilaya de Naissance",
-    birth_commune: "Commune de Naissance",
-    residence_wilaya: "Wilaya de Résidence",
-    residence_commune: "Commune de Résidence",
 
     // Account Setup Fields
-    confirm_password: "Confirmer le Mot de Passe",
 
     // Form Validation Messages
     please_enter_last_name_arabic: "Veuillez saisir le nom de famille en arabe",
@@ -1245,21 +1017,14 @@ const lang = {
     please_confirm_password: "Veuillez confirmer le mot de passe",
     password_min_6_characters: "Le mot de passe doit contenir au moins 6 caractères",
     passwords_do_not_match: "Les mots de passe ne correspondent pas",
-    national_id_18_digits: "Le numéro d'identité nationale doit contenir exactement 18 chiffres",
-    national_id_digits_only: "Le numéro d'identité nationale ne doit contenir que des chiffres",
     certificate_5_digits: "Numéro de Certificat (5 chiffres)",
     national_id_18_digits_placeholder: "Numéro d'Identité Nationale (18 chiffres)",
 
     // Form Help Text
-    required_to_enable_nin: "Requis pour activer le champ NIN",
-    fill_gender_birth_certificate_first: "Remplissez d'abord le sexe, la date de naissance et le numéro de certificat",
-    nin_incorrect: "Le numéro d'identité nationale est incorrect",
 
     // Form Navigation
     previous: "Précédent",
     next: "Suivant",
-    complete_registration: "Terminer l'Inscription",
-    fill_required_fields: "Veuillez remplir tous les champs requis dans cette étape",
 
     // Placeholders
     select_gender: "Sélectionner le Sexe",
@@ -1272,22 +1037,16 @@ const lang = {
     // Error Messages
     failed_to_load_wilayas: "Échec du chargement des wilayas",
     failed_to_load_communes: "Échec du chargement des communes",
-    registration_successful: "Inscription réussie! Bienvenue dans notre centre de garde d'enfants.",
 
     // Payments Translations
     payments: "Paiements",
     payment: "Paiement",
     payment_info: 'Informations de paiement',
     payment_id: "ID Paiement",
-    parent_name: "Nom du Parent",
-    child_name: "Nom de l'Enfant",
-    amount: "Montant",
     payment_date: "Date de Paiement",
     payment_status: "Statut du Paiement",
     status: "Statut",
     receipt: "Reçu",
-    pending: "En Attente",
-    completed: "Terminé",
     unknown: "Inconnu",
     search_payments: "Rechercher des paiements...",
     download_receipt: "Télécharger le reçu",
@@ -1295,28 +1054,15 @@ const lang = {
     no_receipt: "Aucun reçu",
     my_payments: 'Mes paiements',
     add_payment: 'Ajouter un paiement',
-    create_payment: 'Créer le paiement',
-    payment_created_successfully: 'Paiement créé avec succès',
-    error_creating_payment: 'Erreur lors de la création du paiement',
-    receipt_pdf: 'Reçu PDF',
-    select_pdf: 'Sélectionner PDF',
-    upload_pdf: 'Télécharger PDF',
-    upload_receipt: 'Télécharger le reçu',
-    please_select_pdf: 'Veuillez sélectionner un fichier PDF',
-    pdf_uploaded_successfully: 'PDF téléchargé avec succès',
-    error_uploading_pdf: 'Erreur lors du téléchargement du PDF',
     total_payments: 'Total des paiements',
     pending_payments: 'Paiements en attente',
     completed_payments: 'Paiements terminés',
     filter_by_status: 'Filtrer par statut',
     filter_by_child: 'Filtrer par Enfant',
     no_child_specified: 'Aucun enfant spécifié',
-    child: "Enfant (Optionnel)",
-    select_child: "Sélectionner un enfant (optionnel)",
     please_enter_amount: "Veuillez saisir le montant",
     amount_must_be_positive: "Le montant doit être positif",
     enter_amount: "Saisir le montant",
-    please_select_date: "Veuillez sélectionner la date",
     today: "Aujourd'hui",
     receipt_pdf: "Reçu PDF (Optionnel)",
     select_pdf: "Sélectionner un PDF",
@@ -1368,7 +1114,6 @@ const lang = {
     // RFID Scanner translations
     scan_rfid: "Scanner RFID",
     update_rfid: "Mettre à jour RFID",
-    scan_rfid_card: "Scanner la carte",
     scan_rfid_placeholder: "Scanner la carte ou saisir le numéro",
     current_rfid: "RFID actuel",
     rfid_required: "RFID requis",
@@ -1382,17 +1127,12 @@ const lang = {
     check_in: "Entrée",
     check_out: "Sortie",
     scan_mode: "Mode de scan",
-    today_check_ins: "Entrées d'aujourd'hui",
-    today_check_outs: "Sorties d'aujourd'hui",
     currently_in: "Actuellement présent",
     todays_activity: "Activité d'aujourd'hui",
-    select_child: "Sélectionner enfant",
     choose_child: "Choisir un enfant",
-    please_select_child: "Veuillez sélectionner un enfant",
     check_in_successful: "Entrée enregistrée avec succès",
     check_out_successful: "Sortie enregistrée avec succès",
     time: "Heure",
-    type: "Type",
     child: "Enfant",
     checker: "Vérificateur",
 
@@ -1412,7 +1152,6 @@ const lang = {
     please_select_checker: "Veuillez sélectionner un vérificateur",
     please_select_date: "Veuillez sélectionner une date",
     please_select_time: "Veuillez sélectionner une heure",
-    please_select_type: "Veuillez sélectionner un type",
     child_name: "Nom de l'enfant",
     parent_name: "Nom du parent",
     checker_name: "Nom du vérificateur",
@@ -1470,7 +1209,6 @@ const lang = {
     checked_out: "Sortie enregistrée",
     scan_rfid_card: "Scanner la carte RFID",
     scan_or_enter_rfid: "Scanner ou saisir le numéro RFID",
-    please_enter_rfid: "Veuillez entrer le code RFID",
     parent_rfid_detected: "Carte RFID de parent détectée",
     error_processing_rfid: "Erreur lors du traitement RFID",
     showing: "Affichage",
@@ -1493,9 +1231,7 @@ const lang = {
     mark_as_unchecked: "Marquer comme non vérifié",
 
     // Personal Photo and Identity Document translations
-    personal_photo: "Photo Personnelle",
     upload_personal_photo: "Télécharger la Photo Personnelle",
-    identity_document: "Document d'Identité",
     upload_identity_document: "Télécharger le Document d'Identité",
     confirm_password: "Confirmer le Mot de Passe",
 
@@ -1503,14 +1239,12 @@ const lang = {
     wilaya_designation_ar: "Nom de Wilaya (Arabe)",
     wilaya_designation_fr: "Nom de Wilaya (Français)",
     adress: "Adresse",
-    phone: "Téléphone",
     rip: "Numéro Postal",
     check_parents: "Vérifier les Parents",
     parent_email: "Email du Parent",
     parent_telephone: "Téléphone du Parent",
     bloodsign: "Groupe Sanguin",
     date_nais: "Date de Naissance",
-    total: "Total",
     toggle_payment_state: "Basculer l'État de Paiement",
 
     // Childcare Center Description
@@ -1541,7 +1275,6 @@ const lang = {
     role: "Rôle",
     in: "Entrée",
     out: "Sortie",
-    administration: "Administration",
     administration_description: "Paiements • Parents • Accompagnateurs • Enfants • Informations • Inscriptions",
     check_in_outs: "Entrées/Sorties",
     check_in_outs_description: "Gérer les enregistrements d'entrée et de sortie des enfants",
@@ -1552,11 +1285,9 @@ const lang = {
     total_today_records: "Total des enregistrements d'aujourd'hui",
 
     // Concerns translations
-    concerns: "Réclamations et Notes",
     concern: "Réclamation",
     description: "Description",
     response: "Réponse",
-    request_type: "Type de demande",
     date_send: "Date d'envoi",
     date_response: "Date de réponse",
     date_cancel: "Date d'annulation",
@@ -1569,10 +1300,6 @@ const lang = {
     // Document Types translations
     document_types: "Types de documents",
     document_type: "Type de document",
-    designation_ar: "Désignation (AR)",
-    designation_fr: "Désignation (FR)",
-    please_enter_designation_ar: "Veuillez saisir la désignation en arabe",
-    please_enter_designation_fr: "Veuillez saisir la désignation en français",
     document_type_created_successfully: "Type de document créé avec succès",
     document_type_updated_successfully: "Type de document mis à jour avec succès",
     document_type_deleted_successfully: "Type de document supprimé avec succès",
@@ -1585,7 +1312,6 @@ const lang = {
     request_type_deleted_successfully: "Type de demande supprimé avec succès",
 
     // Posts translations
-    posts: "Publications",
     post: "Publication",
     search_posts: "Rechercher des publications",
     please_select_state: "Veuillez sélectionner l'état",
@@ -1612,7 +1338,6 @@ const lang = {
     employees: "Employés",
     employee: "Employé",
     nb_account: "N° Compte",
-    function: "Fonction",
     structure: "Structure",
     employment_status: "Statut d'emploi",
     marital_status: "État civil",
@@ -1623,13 +1348,10 @@ const lang = {
     nb_children_all: "Total enfants",
     nb_children_study: "Enfants scolarisés",
     nb_children_above_10: "Enfants > 10 ans",
-    birth_date: "Date de naissance",
     recruitment_date: "Date de recrutement",
     special_needs: "Besoins spécifiques",
     payment_type: "Type de paiement",
-    bank: "Banque",
     postal: "CCP",
-    nin: "NIN",
     birth_wilaya: "Wilaya de naissance",
     birth_commune: "Commune de naissance",
     residence_wilaya: "Wilaya de résidence",
@@ -1640,13 +1362,9 @@ const lang = {
     please_enter_nom_fr: "Veuillez saisir le nom (FR)",
     please_enter_prenom_ar: "Veuillez saisir le prénom (AR)",
     please_enter_prenom_fr: "Veuillez saisir le prénom (FR)",
-    employee_platform: "Espace Employé",
-    about_us: "À propos de nous",
-    contact_us: "Contactez-nous",
     municipality_social_services: "Commune - Services Sociaux",
     social_services_algeria: "Services Sociaux - Commune d'Alger",
     hero_description: "Nous proposons un ensemble intégré de services sociaux visant à améliorer la qualité de vie et à soutenir les groupes les plus nécessiteux de notre commune. Nous nous efforçons de fournir soutien et soins aux citoyens à travers des programmes et services distingués.",
-    general_data: "Paramètres Générales",
     our_services: "Nos Services",
     social_services_title: "Services Sociaux",
     family_support: "Soutien aux familles",
@@ -1659,28 +1377,19 @@ const lang = {
     opening_hours_laa: "Dimanche - Jeudi : 8:00 - 16:00",
     all_rights_reserved: "Tous droits réservés - Commune d'Alger",
     algeria_municipality: "Commune d'Alger",
-    employee_portal: "Portail Employé",
     employee_platform_subtitle: "Connectez-vous aux Services Sociaux",
-    employee_platform_description: "Une plateforme dédiée aux employés de la commune pour consulter les publications, soumettre des demandes et recevoir des notifications sur les services sociaux disponibles.",
 
     // Services translations
     fixed_price: "Prix fixe",
-    percentage: "Pourcentage",
-    everybody: "Tout le monde",
-    retired: "Retraité",
-    active: "Actif",
     benefit: "Bénéfice",
     how_benefit: "Comment bénéficier",
     nb_children: "Nombre d'enfants",
-    max_value: "Valeur maximale",
     designation_ar: "Désignation (AR)",
     designation_fr: "Désignation (FR)",
     please_enter_designation_ar: "Veuillez saisir la désignation (AR)",
     please_enter_designation_fr: "Veuillez saisir la désignation (FR)",
-    please_select_type: "Veuillez sélectionner le type",
     please_enter_fixed_price: "Veuillez saisir le prix fixe",
     please_enter_nb_children: "Veuillez saisir le nombre d'enfants",
-    please_enter_percentage: "Veuillez saisir le pourcentage",
     please_enter_max_value: "Veuillez saisir la valeur maximale",
 
     // State toggle translations
@@ -1692,7 +1401,6 @@ const lang = {
     pending: "En attente",
     please_select_how_benefit: "Veuillez sélectionner comment bénéficier",
     please_select_service: "Veuillez sélectionner un service",
-    search_services: "Rechercher des services",
     type: "Type",
 
     // Payments translations
@@ -1741,8 +1449,6 @@ const lang = {
     current_payment_number: "Numéro de paiement",
 
     // Navigation & Groups
-    main: "Menu Principal",
-    administration: "Administration",
     hr: "Ressources Humaines",
     wilayas: "Wilayas",
     communes: "Communes",
@@ -1850,50 +1556,9 @@ const lang = {
     download_pdf: "Télécharger le PDF",
     file: "Fichier",
     // Party Management Translations
-    party_name: "Parti National Algérien",
-    welcome_to_party: "Bienvenue au Parti National",
-    party_hero_description: "Rejoignez-nous et faites partie du changement positif en Algérie. Ensemble, construisons un avenir meilleur pour notre nation.",
-    join_party_now: "Rejoindre le parti maintenant",
-    general_data: "Données Générales",
-    administration: "Administration",
-    wilayas_communes: "Wilayas et Communes",
-    establishments: "Établissements",
-    users_management: "Gestion des Utilisateurs",
-    admin_card_desc: "Gérer les données nationales, les établissements et les utilisateurs du système",
-    party_management: "Gestion du Parti",
-    national_wilaya_admin: "Admin National et Wilaya",
-    member_approval: "Approbation des Membres",
-    wilaya_management: "Gestion de la Wilaya",
-    referral_tracking: "Suivi des Parrainages",
-    party_admin_desc: "Approuver les nouveaux membres et gérer les opérations du parti",
-    member_portal: "Portail du Membre",
-    party_members: "Membres du Parti",
-    member_profile: "Profil du Membre",
-    referral_link: "Lien de Parrainage",
-    member_resources: "Ressources",
-    member_portal_desc: "Accéder au tableau de bord du membre et inviter d'autres personnes",
-    about_us: "À propos de nous",
-    contact_us: "Contactez-nous",
-    portals: "Portails",
-    address_party: "Adresse",
-    phone_number_party: "Numéro de téléphone",
-    opening_hours_party: "Heures d'ouverture",
-    identity_document: "Pièce d'identité",
-    personal_photo: "Photo personnelle",
-    function: "Fonction/Métier",
-    referred_by: "Parrainé par",
-    membership_status: "Statut d'adhésion",
-    member_waiting_message: "Adhésion en attente - nécessite l'approbation de l'administration",
-    member_activated_message: "Adhésion activée - félicitations, vous êtes maintenant un membre actif",
-    approve_member: "Approuver le membre",
-    joined: "Membre Actif",
-    in_waiting: "En Attente",
-    inactive: "Inactif",
-    nin: "NIN",
     personal_token: "Jeton Personnel",
     joining_date: "Date d'Adhésion",
     main: "Menu Principal",
-    administration: "Administration",
     last_name_arabic: "Nom (AR)",
     last_name_french: "Nom (FR)",
     first_name_arabic: "Prénom (AR)",
@@ -1908,7 +1573,6 @@ const lang = {
     fill_gender_birth_certificate_first: "Veuillez d'abord remplir le sexe, la date de naissance et le numéro d'acte",
     identity_document: "Pièce d'identité",
     personal_photo: "Photo personnelle",
-    party_member_registration: "Inscription des Membres du Parti",
     join_party_community: "Rejoignez nos rangs et participez au changement",
     referred_by_member: "Vous avez été invité par un membre existant",
     complete_registration: "Compléter l'inscription",
@@ -1931,18 +1595,7 @@ const lang = {
     arabic_surname: "Prénom (AR)",
     latin_surname: "Prénom (FR)",
     national_id: "NIN",
-    establishment_parameters: "Paramètres de l'Établissement",
-    identity_verification: "Vérification d'Identité",
-    identity_verification_desc: "Lorsqu'elle est activée, les nouveaux membres doivent télécharger leur pièce d'identité et une photo personnelle lors de l'inscription.",
-    validation_authority: "Autorité de Validation",
-    validation_authority_desc: "Définissez qui a l'autorité d'approuver les nouveaux membres du parti dans le cadre de cet établissement.",
-    watani_only: "Administrateur National Uniquement",
-    wilaya_allowed: "Administrateur de Wilaya Autorisé",
-    change_token: "Changer le Jeton de Parrainage",
-    change_token_desc: "Lorsqu'il est activé, le jeton de parrainage du membre change chaque fois que quelqu'un s'inscrit en l'utilisant. S'il est désactivé, le jeton reste permanent.",
     parameters_updated_successfully: "Paramètres mis à jour avec succès",
-    loading_parameters: "Chargement des paramètres...",
-    no_establishment_associated: "Aucun établissement associé à votre compte.",
 
     // Welcome and Waiting Pages
     welcome_to_the_party: "Bienvenue au Parti !",
@@ -1962,7 +1615,6 @@ const lang = {
     access_desc: "Commencez votre voyage en tant que membre du parti.",
 
     // Party Members Management
-    party_members: "Membres du Parti",
     party_member: "Membre du Parti",
     details_of: "Détails de",
     failed_to_load_members: "Échec du chargement des membres",

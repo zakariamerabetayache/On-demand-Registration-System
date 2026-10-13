@@ -402,23 +402,47 @@ function removeDuplicateLines(rawLines, duplicates) {
 }
 
 // =============================================================
-// PHASE 6: POST-WRITE INSTRUCTIONS
+// PHASE 6: AUTO GIT DIFF + NEXT STEPS
 // =============================================================
+// After writing changes, automatically run `git diff HEAD~1`
+// and print the full output so you can review what changed
+// without leaving the terminal.
 
 function printPostWriteInstructions() {
-  console.log("\n--- Phase 6: Post-write instructions --------------------");
+  console.log("\n--- Phase 6: Git diff (auto) ----------------------------");
   console.log("");
-  console.log("  Changes have been written. Now run:");
+
+  try {
+    // git diff HEAD~1 compares the current working tree against
+    // the last commit (which was auto-created in Phase 1).
+    // This shows exactly which lines were removed from the locale files.
+    const diff = execSync("git diff HEAD~1", { encoding: "utf8" });
+
+    if (!diff.trim()) {
+      console.log("  (No diff output — working tree matches last commit.)");
+    } else {
+      console.log(diff);
+    }
+  } catch (err) {
+    console.warn("  Could not run git diff: " + err.message);
+  }
+
+  console.log("--- Next steps ------------------------------------------");
   console.log("");
-  console.log("    1. git diff                  (review what changed)");
-  console.log("    2. npm run build             (verify no build errors)");
-  console.log("    3. npm run dev               (test the app manually)");
+  console.log("  1. Review the diff above carefully.");
   console.log("");
-  console.log("  If everything looks good:");
+  console.log("  If everything looks good, commit the cleanup:");
   console.log("    git add -A && git commit -m 'chore: remove duplicate locale keys'");
   console.log("");
-  console.log("  If something went wrong:");
+  console.log("  Then verify the build:");
+  console.log("    npm run build");
+  console.log("    npm run dev");
+  console.log("");
+  console.log("  If something went wrong, restore the locale files:");
   console.log("    git checkout -- .");
+  console.log("  Or undo the auto-commit from Phase 1 entirely:");
+  console.log("    git reset HEAD~1 --hard");
+  console.log("---------------------------------------------------------");
   console.log("");
 }
 

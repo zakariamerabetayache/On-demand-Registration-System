@@ -10,35 +10,23 @@ const lang = {
     register: "Register",
     or: "Or",
     already_have_account_login: "Already Have Account Login",
-    name: "Name",
-    email: "Email",
     password: "Password",
     country: "Country",
-    tracklife: "TrackLife",
 
     // Navigation
     home: "Home",
-    about: "About",
-    products: "Products",
     services: "Services",
-    contact: "Contact Us",
     dashboard: "Dashboard",
     profile: "Profile",
     settings: "Settings",
     logout: "Logout",
     login: "Login",
-    features: "Features",
     pricing: "Pricing",
-    support: "Support",
     customers: "Customers",
-    users_list: "Users",
-    user: "User",
     users: "Users",
     chambers_list: "Chambers",
-    products: "Products",
     invoices: "Invoices",
     quote: "Quote",
-    payments: "Payments",
     payments_mode: "Payment Methods",
     taxes: "Taxes",
     profile_settings: "Profile Settings",
@@ -46,60 +34,29 @@ const lang = {
 
     // Common actions
     save: "Save",
-    cancel: "Cancel",
-    delete: "Delete",
-    edit: "Edit",
-    add: "Add",
-    update: "Update",
     submit: "Submit",
     search: "Search",
     filter: "Filter",
     sort: "Sort",
-    view: "View",
-    actions: "Actions",
-    refresh: "Refresh",
-    add_new: "Add New",
 
     // CRUD specific
-    add_new_item: "Add New Item",
-    edit_item: "Edit Item",
-    item_details: "Item Details",
-    details: "Details",
-    this_item: "this item",
-    delete_confirmation_message:
-        "Are you sure you want to delete {item}? This action cannot be undone.",
-    delete_warning: "This action cannot be undone.",
-    created_at: "Created At",
-    updated_at: "Updated At",
-    showing_entries: "Showing {start} to {end} of {total} entries",
 
     // User fields
-    first_name: "First Name",
-    family_name: "Family Name",
-    role: "Role",
-    owner: "Owner",
-    client: "Client",
 
     // Form placeholders and validation
     select_firstName: "Select First Name",
     select_familyName: "Select Family Name",
-    select_role: "Select Role",
     enter_firstName: "Enter First Name",
     enter_familyName: "Enter Family Name",
-    enter_role: "Enter Role",
     firstName_required: "First Name is required",
     familyName_required: "Family Name is required",
-    role_required: "Role is required",
 
     // Messages
     success: "Success",
-    error: "Error",
     warning: "Warning",
     info: "Information",
     loading: "Loading...",
     no_data: "No data available",
-    confirm_delete: "Are you sure you want to delete?",
-    ok: "OK",
 
     // Error handling messages
     network_error: "Network Error",
@@ -114,7 +71,6 @@ const lang = {
     forbidden_message: "You don't have permission to access this resource.",
     contact_admin:
         "Please contact your administrator if you believe this is an error.",
-    not_found: "Not Found",
     not_found_message: "The requested resource was not found or has been moved.",
     check_url: "Please check the URL and try again.",
     server_error: "Server Error",
@@ -123,13 +79,10 @@ const lang = {
     try_again_later: "Please try again in a few minutes.",
     unknown_error: "An unknown error occurred",
     error_occurred: "Error",
-    contact_support: "If the problem persists, please contact support.",
 
     // Form validation
     required_field: "This field is required",
     invalid_email: "Invalid email address",
-    min_length_error: "Minimum length is {min} characters",
-    max_length_error: "Maximum length is {max} characters",
 
     // CRUD Operations
     users_list: "Users List",
@@ -138,15 +91,11 @@ const lang = {
     add_new_item: "Add New Item",
     edit_item: "Edit Item",
     item_details: "Item Details",
-    view: "View",
-    actions: "Actions",
     refresh: "Refresh",
     showing_entries: "Showing {start} to {end} of {total} entries",
 
     // User fields
-    first_name: "First Name",
     family_name: "Family Name",
-    role: "Role",
     owner: "Owner",
     client: "Client",
 
@@ -164,24 +113,17 @@ const lang = {
     max_length_error: "Maximum length is {max} characters",
 
     // Delete confirmation
-    confirm_delete: "Confirm Delete",
     delete_confirmation_message: "Are you sure you want to delete {item}?",
     delete_warning: "This action cannot be undone.",
     this_item: "this item",
-    actions: "Actions",
-    view: "View",
     deleted_successfully: "deleted successfully",
     failed_to_delete: "Failed to delete",
     are_you_sure_delete: "Are you sure you want to delete this",
-    yes: "Yes",
-    no: "No",
 
     // Timestamps
-    created_at: "Created At",
     updated_at: "Updated At",
 
     // General
-    details: "Details",
     password_too_short: "Password is too short",
     passwords_dont_match: "Passwords do not match",
     tracklife: "TrackLife",
@@ -201,12 +143,9 @@ const lang = {
 
     // Chamber fields
     chamber_name: "Chamber Name",
-    description: "Description",
     capacity: "Capacity",
     price_per_hour: "Price per Hour",
     building: "Building",
-    status: "Status",
-    active: "Active",
     available: "Available",
     occupied: "Occupied",
     maintenance: "Maintenance",
@@ -214,8 +153,6 @@ const lang = {
     chamber_details: "Chamber Details",
 
     // Products CRUD
-    product: "Product",
-    product_name: "Product Name",
     product_description: "Product Description",
     product_price: "Product Price",
     product_category: "Product Category",
@@ -238,53 +175,28 @@ const lang = {
     failed_to_load_products: "Failed to load products",
 
     // Product Categories
-    electronics: "Electronics",
-    accessories: "Accessories",
-    furniture: "Furniture",
-    software: "Software",
 
     // Status translations
-    status: "Status",
 
     // Product Status
-    active: "Active",
-    inactive: "Inactive",
-    out_of_stock: "Out of Stock",
-    low_stock: "Low Stock",
 
     // Common Status Values
     enabled: "Enabled",
     disabled: "Disabled",
-    pending: "Pending",
     approved: "Approved",
     rejected: "Rejected",
-    draft: "Draft",
-    published: "Published",
     archived: "Archived",
     file_already_uploaded: "Already Uploaded",
     update_file: "Update File",
     deadline: "Deadline",
     pending_submissions: "Pending Submissions",
-    file_uploaded_successfully: "File uploaded successfully",
-    upload_failed: "Upload failed",
 
     // Form validation
     please_enter_user_id: "Please enter user ID",
-    please_select_user: "Please select a user",
-    please_enter_product_name: "Please enter product name",
-    please_enter_description: "Please enter description",
-    please_enter_price: "Please enter price",
-    please_select_category: "Please select category",
-    please_enter_stock_quantity: "Please enter stock quantity",
-    please_select_status: "Please select status",
 
     // Table headers
     user: "User",
     name: "Name",
-    description: "Description",
-    price: "Price",
-    category: "Category",
-    stock: "Stock",
     actions: "Actions",
 
     // Filters
@@ -295,14 +207,10 @@ const lang = {
 
     // Pagination
     items: "items",
-    of: "of",
 
     // Confirmation messages
     are_you_sure_delete_product: "Are you sure you want to delete this product?",
     this_action_cannot_be_undone: "This action cannot be undone.",
-    yes: "Yes",
-    no: "No",
-    close: "Close",
 
     // Common actions
     select: "Select",
@@ -313,39 +221,24 @@ const lang = {
     add: "Add",
     create: "Create",
     update: "Update",
-    cancel: "Cancel",
 
     // User fields
     nom_ar: "Arabic Last Name",
     nom_fr: "French Last Name",
     prenom_ar: "Arabic First Name",
     prenom_fr: "French First Name",
-    role: "Role",
     application: "Application",
     admin: "Admin",
-    manager: "Manager",
     staff: "Staff",
     student: "Student",
     main_app: "Main App",
     secondary_app: "Secondary App",
     mobile_app: "Mobile App",
-    please_enter_nom_ar: "Please enter Arabic last name",
-    please_enter_nom_fr: "Please enter French last name",
-    please_enter_prenom_ar: "Please enter Arabic first name",
-    please_enter_prenom_fr: "Please enter French first name",
-    please_enter_email: "Please enter email",
-    please_enter_valid_email: "Please enter a valid email",
-    please_enter_password: "Please enter password",
-    password_min_6_characters: "Password must be at least 6 characters",
     please_select_role: "Please select a role",
     please_select_application: "Please select an application",
 
     // Role labels for users system
-    administrator: "Administrator",
-    production_agent: "Production Agent",
     salesperson: "Salesperson",
-    counter_seller: "Counter Salesperson",
-    seller_production: "Sales & Production",
     all: "All",
 
     // Password confirmation
@@ -353,11 +246,8 @@ const lang = {
     please_enter_password_confirmation: "Please enter password confirmation",
 
     // Wilayas and Communes
-    wilayas: "Wilayas",
-    communes: "Communes",
     wilaya: "Wilaya",
     commune: "Commune",
-    designation: "Designation",
     nb_wilaya: "Wilaya Number",
     postalw: "Postal Code (Wilaya)",
     postalc: "Postal Code (Commune)",
@@ -376,48 +266,24 @@ const lang = {
     products: "Products",
     product: "Product",
     product_name: "Product Name",
-    price: "Price",
-    category: "Category",
     stock_quantity: "Stock Quantity",
-    status: "Status",
-    active: "Active",
-    inactive: "Inactive",
-    out_of_stock: "Out of Stock",
-    low_stock: "Low Stock",
     electronics: "Electronics",
     accessories: "Accessories",
     furniture: "Furniture",
     software: "Software",
     please_enter_product_name: "Please enter product name",
-    please_enter_price: "Please enter price",
     please_enter_stock_quantity: "Please enter stock quantity",
-    please_select_category: "Please select category",
     please_select_status: "Please select status",
     please_select_user: "Please select user",
 
     // Etablissements
-    etablissements: "Establishments",
     etablissement: "Establishment",
-    designation_ar: "Arabic Name",
-    designation_fr: "French Name",
     users_count: "Users Count",
     with_users: "With Users",
     without_users: "Without Users",
-    please_enter_designation_ar: "Please enter Arabic name",
-    please_enter_designation_fr: "Please enter French name",
     please_select_commune: "Please select commune",
-    parameter_updated: "Parameter updated successfully",
-    manage_establishment_settings_desc: "Configure how your establishment handles verification and validation processes.",
-    changes_saved_automatically: "All changes are saved automatically",
 
     // Produits (almawad)
-    produits: "Products (Materials)",
-    produit: "Product (Material)",
-    designation_ar: "Arabic Designation",
-    designation_fr: "French Designation",
-    reference: "Reference",
-    unite_mesure: "Unit of Measure",
-    category: "Category",
     contutie_initial: "Initial Quantity",
     contutie_seuil: "Threshold Quantity",
     contutie_final: "Final Quantity",
@@ -425,9 +291,6 @@ const lang = {
     prix_vente: "Sale Price",
     prix_fidelite: "Loyalty Price",
     prix_non_conforme: "Non-Compliant Price",
-    please_enter_designation_ar: "Please enter Arabic designation",
-    please_enter_designation_fr: "Please enter French designation",
-    please_enter_reference: "Please enter reference",
     please_select_unite_mesure: "Please select unit of measure",
     please_select_category: "Please select category",
     please_enter_contutie_initial: "Please enter initial quantity",
@@ -446,18 +309,11 @@ const lang = {
     produits_deleted_successfully: "Products deleted successfully",
 
     // Productions (intage)
-    productions: "Productions",
-    production: "Production",
-    production_date: "Production Date",
     contutie_produit: "Produced Quantity",
-    produit_state: "Product State",
     please_enter_production_date: "Please enter production date",
     please_select_produit: "Please select product",
     please_enter_contutie_produit: "Please enter produced quantity",
     please_select_produit_state: "Please select product state",
-    good_state: "Good - Intact",
-    repairable_state: "Repairable",
-    damaged_state: "Damaged",
     productions_statistics: "Productions Statistics",
     production_created_successfully: "Production created successfully",
     production_updated_successfully: "Production updated successfully",
@@ -465,9 +321,6 @@ const lang = {
     productions_deleted_successfully: "Productions deleted successfully",
 
     // Stocks
-    stocks: "Stocks",
-    stock: "Stock",
-    stock_state: "Stock State",
     contutie: "Quantity",
     please_enter_contutie: "Please enter quantity",
     please_select_stock_state: "Please select stock state",
@@ -481,18 +334,8 @@ const lang = {
     company_name: "Jestion Commercial",
     features: "Features",
     about: "About",
-    contact: "Contact",
-    get_started: "Get Started",
     new_badge: "New",
     commercial_management_platform: " Commercial management platform",
-    manage_your_commerce: "Manage your",
-    commerce: "commerce",
-    with_intelligence: "with intelligence",
-    complete_solution_description: "A complete solution to optimize your commercial processes, manage your teams and grow your business with modern and intuitive tools.",
-    get_started_button: "Get Started",
-    free_installation: "Free installation",
-    no_setup_fees: "No setup fees",
-    technical_support: "24/7 technical support",
     manage_your_commerce: "Manage your",
     commerce: "commerce",
     with_intelligence: "with intelligence",
@@ -517,8 +360,6 @@ const lang = {
     regulatory_compliance_desc: "Stay compliant with industry standards and regulations.",
 
     // About section
-    about_title: "About Jestion Commercial",
-    about_description: "We are a team of experts passionate about technology and innovation. Our mission is to provide cutting-edge management solutions for modern businesses.",
     continuous_innovation: "Continuous innovation",
     continuous_innovation_desc: "We regularly update our platform with the latest technologies",
     personalized_support: "Personalized support",
@@ -527,15 +368,12 @@ const lang = {
     guaranteed_security_desc: "Your data is protected by the highest security standards",
 
     // Footer
-    footer_description: "The complete solution to optimize your commercial management and grow your business.",
     useful_links: "Useful Links",
     support: "Support",
     documentation: "Documentation",
-    contact_info: "Contact",
     email_contact: "Email: contact@jestion.com",
     phone_contact: "Phone: +33 1 23 45 67 89",
     address_contact: "Address: 123 Tech Street, Paris",
-    all_rights_reserved: " 2025 pack design. All rights reserved.",
 
     // Unite Mesures translations
     unite_mesures: "Unit Measures",
@@ -620,7 +458,6 @@ const lang = {
     non_compliant_price: "Non-Compliant Price",
 
     // Account approval messages
-    account_pending_approval: "Account Pending Approval",
     we_will_review_your_request: "We will review your request and respond as soon as possible.",
     status_under_review: "Under Review",
     need_help: "Need help?",
@@ -656,25 +493,11 @@ const lang = {
     please_enter_price: "Please enter price",
     file_must_be_image: "File must be an image",
     image_must_smaller_than_2mb: "Image must be smaller than 2MB",
-    logo_upload_hint: "Supported formats: JPG, PNG, GIF, SVG (Max 2MB)",
-    upload_file: "Upload File",
-    change_file: "Change File",
-    upload_image: "Upload Image",
-    drag_or_click_to_upload: "Click or drag image here to upload",
-    image_upload_hint: "Supported formats: JPG, PNG, GIF, SVG (Max 2MB)",
-    file_selected: "File selected",
-    uploading_progress: "Uploading...",
-    upload_complete: "Upload Complete",
-    logo_available_after_creation: "Logo can be added after creating the establishment",
-    yes: "Yes",
-    no: "No",
 
     // Childcare Center Translations
     childcare_center: "Childcare Center",
     nurturing_future_leaders: "Nurturing Future Leaders",
     safe_loving_environment: "Safe & Loving Environment",
-    our_services: "Our Services",
-    about_us: "About Us",
     contact: "Contact",
     register_as_parent: "Register as Parent",
     staff_login: "Staff Login",
@@ -683,7 +506,6 @@ const lang = {
     // Services
     early_childhood_education: "Early Childhood Education",
     early_childhood_education_desc: "Comprehensive educational programs designed to foster cognitive, social, and emotional development in young children.",
-    nutritious_meals: "Nutritious Meals",
     nutritious_meals_desc: "Healthy, balanced meals prepared fresh daily to support your child's growth and development.",
     safe_environment: "Safe Environment",
     safe_environment_desc: "Secure, child-proofed facilities with trained staff ensuring your child's safety at all times.",
@@ -695,16 +517,9 @@ const lang = {
     flexible_schedules_desc: "Convenient scheduling options to accommodate your family's needs and busy lifestyle.",
 
     // Stats
-    happy_children: "Happy Children",
-    qualified_staff: "Qualified Staff",
-    years_experience: "Years of Experience",
-    parent_satisfaction: "Parent Satisfaction",
 
     // Gender
     sex: "Sex",
-    male: "Male",
-    female: "Female",
-    please_select_sex: "Please select sex",
 
     // About
     about_title: "About Our Childcare Center",
@@ -719,23 +534,16 @@ const lang = {
     family_partnership: "Family Partnership",
 
     // CTA Section
-    ready_to_give_best_care: "Ready to Give Your Child the Best Care?",
-    join_loving_community: "Join our loving childcare community today. Register as a parent to get started, or contact us to learn more about our programs and services.",
 
     // Footer
-    quick_links: "Quick Links",
     programs: "Programs",
     enrollment: "Enrollment",
     contact_info: "Contact Information",
-    address: "Address",
-    phone: "Phone",
     email: "Email",
     follow_us: "Follow Us",
-    all_rights_reserved: "All rights reserved",
 
     // Parent System
     add_companion: "Add Companion",
-    add_child: "Add Child",
     manage_companions: "Manage Companions",
     manage_children: "Manage Children",
 
@@ -744,7 +552,6 @@ const lang = {
     welcome_back: "Welcome Back",
     parent_dashboard_description: "Manage your companions and children from your personal dashboard.",
     total_companions: "Total Companions",
-    total_children: "Total Children",
     manage_companions_description: "Add and manage people authorized to accompany your children.",
     manage_children_description: "Add and manage information for your children enrolled in the center.",
     recent_items: "Recent Items",
@@ -753,7 +560,6 @@ const lang = {
     // Admin Views
     parents: "Parents",
     companions: "Companions",
-    children: "Children",
 
     view_profile: "View Profile",
     edit_profile: "Edit Profile",
@@ -793,19 +599,13 @@ const lang = {
     select_blood_type: "Select Blood Type",
     please_select_date_nais: "Please select birth date",
     select_date_nais: "Select Birth Date",
-    age: "Age",
-    years: "years",
     months: "months",
 
     // Landing Page Additional Translations
-    child_development_tracking: "Child Development Tracking",
     child_development_description: "Monitor your child's growth, milestones, and learning progress with detailed reports and insights.",
-    safe_secure_environment: "Safe & Secure Environment",
     safe_environment_description: "State-of-the-art security systems, background-checked staff, and comprehensive safety protocols.",
-    professional_caregivers: "Professional Caregivers",
     professional_caregivers_description: "Qualified and experienced educators dedicated to nurturing your child's physical and emotional development.",
     educational_programs: "Educational Programs",
-    educational_programs_description: "Age-appropriate learning activities, creative play, and structured programs to enhance cognitive development.",
     educational_programs_description: "Age-appropriate learning activities, creative play, and structured programs to enhance cognitive development.",
     parent_communication_description: "Real-time updates, photos, daily reports, and direct communication with your child's caregivers.",
 
@@ -814,16 +614,8 @@ const lang = {
     etablissement_updated_successfully: "Establishment updated successfully",
     no_etablissement_assigned: "No establishment assigned to your account",
     payment_settings: "Payment Settings",
-    current_payment_number: "Current Payment Number",
-    year: "Year",
-    state: "State",
-    open: "Open",
-    close: "Closed",
     please_enter_current_payment_number: "Please enter current payment number",
     please_enter_year: "Please enter year",
-    please_select_state: "Please select state",
-    rib: "RIB/Account Number",
-    nutritious_meals: "Nutritious Meals",
     nutritious_meals_description: "Healthy, balanced meals prepared by certified nutritionists to support your child's growth and development.",
     our_childcare_services: "Our Childcare Services",
     comprehensive_care_description: "Comprehensive care and education services designed to nurture your child's development in a safe, loving environment.",
@@ -840,7 +632,6 @@ const lang = {
     questions_contact_us: "Questions? Call us at (555) 123-4567 or email info@childcarecenter.com",
     footer_description: "Nurturing your child's future with love, care, and professional education. A trusted partner in your child's development journey.",
     quick_links: "Quick Links",
-    parent_registration: "Parent Registration",
 
     // GuestLayout Features - Staff Mode
     manage_children_parents: "Manage Children & Parents",
@@ -854,7 +645,6 @@ const lang = {
 
     // GuestLayout Content - Staff Mode
     staff_administration: "Staff & Administration",
-    childcare_management_system: "Childcare Management System",
     staff_platform_description: "Comprehensive platform for childcare center staff to manage children, parents, and daily operations with advanced tools and reporting",
 
     // GuestLayout Content - Parent Mode
@@ -863,10 +653,8 @@ const lang = {
     parent_platform_description: "Stay connected with your child's daily activities, growth milestones, and communicate directly with caregivers in a safe, loving environment",
 
     // Name fields
-    last_name: "Last Name",
 
     // Parent state management
-    check: "Check",
     parent_activated_successfully: "Parent activated successfully",
     parent_deactivated_successfully: "Parent deactivated successfully",
     error_updating_parent_state: "Error updating parent state",
@@ -876,11 +664,9 @@ const lang = {
     parent_order: "Parent Order",
     order_details: "Order Details",
     order_description: "Order Description",
-    order_type: "Order Type",
     order_state: "Order State",
     pdf_state: "File State",
     created_at: "Created At",
-    parent_name: "Parent Name",
     creator_name: "Creator Name",
     summon_order: "Summon Order",
     file_order: "File Order",
@@ -903,7 +689,6 @@ const lang = {
     confirm_delete_order: "Are you sure you want to delete this order?",
     search_orders: "Search orders...",
     filter_by_type: "Filter by type",
-    filter_by_state: "Filter by state",
     filter_by_parent: "Filter by parent",
     all_types: "All types",
     all_states: "All states",
@@ -922,24 +707,13 @@ const lang = {
     // Payment translations
     no_child_assigned: "No child assigned",
     add_child: "Add Child",
-    view_receipt: "View Receipt",
-    payment_id: "Payment ID",
-    child: "Child",
-    certificate_number: "Certificate Number",
-    male: "Male",
-    female: "Female",
-    not_specified: "Not Specified",
     account_status: "Account Status",
-    active: "Active",
-    inactive: "Inactive",
     account_activated_message: "Account activated - parent can access the system",
     account_deactivated_message: "Account not activated - requires administration approval",
     activate_deactivate: "Activate/Deactivate",
 
     // Form validation messages
-    please_select_order_type: "Please select an order type",
     select_order_type: "Select order type",
-    please_enter_description: "Please enter order description",
     enter_order_description: "Enter order description",
 
     // Payment system translations
@@ -949,7 +723,6 @@ const lang = {
     amount_to_pay: "Amount to Pay",
     receipt_uploaded: "Receipt Uploaded",
     replace_receipt: "Replace Receipt",
-    view_receipt: "View Receipt",
     upload_payment_receipt: "Upload Payment Receipt",
     payment_verification_note: "After uploading your receipt, our team will verify your payment within 24-48 hours.",
     receipt_uploaded_successfully: "Receipt uploaded successfully",
@@ -962,9 +735,7 @@ const lang = {
     payment_receipt: "Payment Receipt",
     payment_state_updated: "Payment state updated successfully",
     failed_to_update_state: "Failed to update payment state",
-    confirm_state_change: "Confirm state change?",
     state_change_description: "This will update the parent's payment status.",
-    no_receipt: "No Receipt",
     image_file: "Image",
     pdf_file: "PDF File",
     invalid_file_type: "Please upload a PDF, JPG, or PNG file",
@@ -984,37 +755,17 @@ const lang = {
     parent_registration: "Parent Registration",
     join_childcare_community: "Join our childcare center community",
     personal_information_identity: "Personal Information & Identity",
-    contact_information: "Contact Information",
-    address_information: "Address Information",
-    account_setup: "Account Setup",
 
     // Personal Information Fields
-    last_name_arabic: "Last Name (Arabic)",
-    last_name_french: "Last Name (French)",
-    first_name_arabic: "First Name (Arabic)",
-    first_name_french: "First Name (French)",
-    date_of_birth: "Date of Birth",
-    gender: "Gender",
-    certificate_number: "Certificate Number",
-    national_id_number: "National ID Number (NIN)",
     national_identity_information: "National Identity Information",
 
     // Contact Information Fields
-    phone_number: "Phone Number",
-    email_address: "Email Address",
-    identity_document: "Identity Document",
-    upload_identity_document: "Upload Identity Document",
 
     // Address Information Fields
     address: "Address",
     full_address: "Full Address",
-    birth_wilaya: "Birth Wilaya",
-    birth_commune: "Birth Commune",
-    residence_wilaya: "Residence Wilaya",
-    residence_commune: "Residence Commune",
 
     // Account Setup Fields
-    confirm_password: "Confirm Password",
 
     // Form Validation Messages
     please_enter_last_name_arabic: "Please enter your last name in Arabic",
@@ -1037,21 +788,14 @@ const lang = {
     please_confirm_password: "Please confirm your password",
     password_min_6_characters: "Password must be at least 6 characters",
     passwords_do_not_match: "Passwords do not match",
-    national_id_18_digits: "National ID Number must be exactly 18 digits",
-    national_id_digits_only: "National ID Number must contain only digits",
     certificate_5_digits: "Certificate Number (5 digits)",
     national_id_18_digits_placeholder: "National ID Number (18 digits)",
 
     // Form Help Text
-    required_to_enable_nin: "Required to enable NIN field",
-    fill_gender_birth_certificate_first: "Fill gender, birth date, and certificate number first",
-    nin_incorrect: "NIN is incorrect",
 
     // Form Navigation
     previous: "Previous",
     next: "Next",
-    complete_registration: "Complete Registration",
-    fill_required_fields: "Please fill all required fields in this step",
 
     // Placeholders
     select_gender: "Select Gender",
@@ -1064,22 +808,16 @@ const lang = {
     // Error Messages
     failed_to_load_wilayas: "Failed to load wilayas",
     failed_to_load_communes: "Failed to load communes",
-    registration_successful: "Registration successful! Welcome to our childcare center.",
 
     // Payments Translations
     payments: "Payments",
     payment: "Payment",
     payment_info: 'Payment Information',
     payment_id: "Payment ID",
-    parent_name: "Parent Name",
-    child_name: "Child Name",
-    amount: "Amount",
     payment_date: "Payment Date",
     payment_status: "Payment Status",
     status: "Status",
     receipt: "Receipt",
-    pending: "Pending",
-    completed: "Completed",
     unknown: "Unknown",
     search_payments: "Search payments...",
     download_receipt: "Download Receipt",
@@ -1087,28 +825,14 @@ const lang = {
     no_receipt: "No Receipt",
     my_payments: 'My Payments',
     add_payment: 'Add Payment',
-    create_payment: 'Create Payment',
-    payment_created_successfully: 'Payment created successfully',
-    error_creating_payment: 'Error creating payment',
-    receipt_pdf: 'Receipt PDF',
-    select_pdf: 'Select PDF',
-    upload_pdf: 'Upload PDF',
-    upload_receipt: 'Upload Receipt',
-    please_select_pdf: 'Please select PDF file',
-    pdf_uploaded_successfully: 'PDF uploaded successfully',
-    error_uploading_pdf: 'Error uploading PDF',
-    error_downloading_receipt: 'Error downloading receipt',
     total_payments: 'Total Payments',
     pending_payments: 'Pending Payments',
     completed_payments: 'Completed Payments',
     filter_by_status: 'Filter by status',
     today: 'Today',
-    child: "Child (Optional)",
-    select_child: "Select child (optional)",
     please_enter_amount: "Please enter amount",
     amount_must_be_positive: "Amount must be positive",
     enter_amount: "Enter amount",
-    please_select_date: "Please select date",
     receipt_pdf: "Receipt PDF (Optional)",
     select_pdf: "Select PDF",
     create_payment: "Create Payment",
@@ -1123,7 +847,6 @@ const lang = {
     error_downloading_receipt: "Error downloading receipt",
     manage_my_payments: "Manage My Payments",
     payment_waiting_validation: "Your payment is now waiting until the manager validates it then you can add your children.",
-    ok: "OK",
 
     // PDF Authorization Documents
     download_parental_authorization: "Download Parental Authorization",
@@ -1162,7 +885,6 @@ const lang = {
     // RFID Scanner translations
     scan_rfid: "Scan RFID",
     update_rfid: "Update RFID",
-    scan_rfid_card: "Scan Card",
     scan_rfid_placeholder: "Scan card or enter number",
     current_rfid: "Current RFID",
     rfid_required: "RFID required",
@@ -1176,17 +898,12 @@ const lang = {
     check_in: "Check In",
     check_out: "Check Out",
     scan_mode: "Scan Mode",
-    today_check_ins: "Today's Check-Ins",
-    today_check_outs: "Today's Check-Outs",
     currently_in: "Currently In",
     todays_activity: "Today's Activity",
-    select_child: "Select Child",
     choose_child: "Choose a child",
-    please_select_child: "Please select a child",
     check_in_successful: "Check-in successful",
     check_out_successful: "Check-out successful",
     time: "Time",
-    type: "Type",
     child: "Child",
     checker: "Checker",
 
@@ -1214,7 +931,6 @@ const lang = {
     please_select_checker: "Please select a checker",
     please_select_date: "Please select a date",
     please_select_time: "Please select a time",
-    please_select_type: "Please select a type",
     child_name: "Child Name",
     parent_name: "Parent Name",
     checker_name: "Checker Name",
@@ -1252,9 +968,7 @@ const lang = {
     records: "record",
 
     // Personal Photo and Identity Document translations
-    personal_photo: "Personal Photo",
     upload_personal_photo: "Upload Personal Photo",
-    identity_document: "Identity Document",
     upload_identity_document: "Upload Identity Document",
     confirm_password: "Confirm Password",
 
@@ -1262,14 +976,12 @@ const lang = {
     wilaya_designation_ar: "Wilaya Name (Arabic)",
     wilaya_designation_fr: "Wilaya Name (French)",
     adress: "Address",
-    phone: "Phone",
     rip: "Postal Number",
     check_parents: "Check Parents",
     parent_email: "Parent Email",
     parent_telephone: "Parent Telephone",
     bloodsign: "Blood Type",
     date_nais: "Date of Birth",
-    total: "Total",
     toggle_payment_state: "Toggle Payment State",
 
     // Additional RFID Check-In/Out translations
@@ -1279,7 +991,6 @@ const lang = {
     checked_out: "Checked Out",
     scan_rfid_card: "Scan RFID Card",
     scan_or_enter_rfid: "Scan or Enter RFID Number",
-    please_enter_rfid: "Please enter RFID number",
     parent_rfid_detected: "Parent RFID card detected",
     error_processing_rfid: "Error processing RFID",
     showing: "Showing",
@@ -1343,7 +1054,6 @@ const lang = {
     role: "Role",
     in: "In",
     out: "Out",
-    administration: "Administration",
     administration_description: "Payments • Parents • Companions • Children • Information • Registrations",
     check_in_outs: "Check-in/outs",
     check_in_outs_description: "Manage children's check-in and check-out records",
@@ -1354,11 +1064,9 @@ const lang = {
     total_today_records: "Total Today's Records",
 
     // Concerns translations
-    concerns: "Concerns & Notes",
     concern: "Concern",
     description: "Description",
     response: "Response",
-    request_type: "Request Type",
     date_send: "Date Sent",
     date_response: "Date of Response",
     date_cancel: "Date of Cancellation",
@@ -1371,10 +1079,6 @@ const lang = {
     // Document Types translations
     document_types: "Document Types",
     document_type: "Document Type",
-    designation_ar: "Designation (AR)",
-    designation_fr: "Designation (FR)",
-    please_enter_designation_ar: "Please enter designation in Arabic",
-    please_enter_designation_fr: "Please enter designation in French",
     document_type_created_successfully: "Document type created successfully",
     document_type_updated_successfully: "Document type updated successfully",
     document_type_deleted_successfully: "Document type deleted successfully",
@@ -1387,7 +1091,6 @@ const lang = {
     request_type_deleted_successfully: "Request type deleted successfully",
 
     // Posts translations
-    posts: "Posts",
     post: "Post",
     search_posts: "Search posts",
     please_select_state: "Please select state",
@@ -1414,7 +1117,6 @@ const lang = {
     employees: "Employees",
     employee: "Employee",
     nb_account: "Account No.",
-    function: "Function",
     structure: "Structure",
     employment_status: "Employment Status",
     marital_status: "Marital Status",
@@ -1425,13 +1127,10 @@ const lang = {
     nb_children_all: "Total Children",
     nb_children_study: "Children in School",
     nb_children_above_10: "Children Over 10",
-    birth_date: "Birth Date",
     recruitment_date: "Recruitment Date",
     special_needs: "Special Needs",
     payment_type: "Payment Type",
-    bank: "Bank",
     postal: "Postal",
-    nin: "NIN",
     birth_wilaya: "Birth Wilaya",
     birth_commune: "Birth Commune",
     residence_wilaya: "Residence Wilaya",
@@ -1442,13 +1141,9 @@ const lang = {
     please_enter_nom_fr: "Please enter last name (FR)",
     please_enter_prenom_ar: "Please enter first name (AR)",
     please_enter_prenom_fr: "Please enter first name (FR)",
-    employee_platform: "Employee Platform",
-    about_us: "About Us",
-    contact_us: "Contact Us",
     municipality_social_services: "Municipality - Social Services",
     social_services_algeria: "Social Services - Algeria Municipality",
     hero_description: "We provide an integrated set of social services aimed at improving the quality of life and supporting the groups most in need in our municipality. We strive to provide support and care to citizens through distinguished programs and services.",
-    general_data: "General Settings",
     our_services: "Our Services",
     social_services_title: "Social Services",
     family_support: "Family Support",
@@ -1461,32 +1156,22 @@ const lang = {
     opening_hours_laa: "Sunday - Thursday: 8:00 - 16:00",
     all_rights_reserved: "All rights reserved - Algeria Municipality",
     algeria_municipality: "Algeria Municipality",
-    employee_portal: "Employee Portal",
     employee_platform_subtitle: "Connect with Social Services",
-    employee_platform_description: "A platform dedicated to municipality employees to view posts, submit requests, and receive notifications about available social services.",
 
     // Services translations
     fixed_price: "Fixed Price",
-    percentage: "Percentage",
-    everybody: "Everybody",
-    retired: "Retired",
-    active: "Active",
     benefit: "Benefit",
     how_benefit: "How to Benefit",
     nb_children: "Number of Children",
-    max_value: "Max Value",
     designation_ar: "Designation (AR)",
     designation_fr: "Designation (FR)",
     please_enter_designation_ar: "Please enter designation (AR)",
     please_enter_designation_fr: "Please enter designation (FR)",
-    please_select_type: "Please select type",
     please_enter_fixed_price: "Please enter fixed price",
     please_enter_nb_children: "Please enter number of children",
-    please_enter_percentage: "Please enter percentage",
     please_enter_max_value: "Please enter max value",
     please_select_how_benefit: "Please select how to benefit",
     please_select_service: "Please select a service",
-    search_services: "Search services",
     type: "Type",
 
     // Payments translations
@@ -1535,8 +1220,6 @@ const lang = {
     current_payment_number: "Payment Number",
 
     // Navigation & Groups
-    main: "Main Menu",
-    administration: "Administration",
     hr: "Human Resources",
     wilayas: "Wilayas",
     communes: "Communes",
@@ -1644,50 +1327,9 @@ const lang = {
     download_pdf: "Download PDF",
     file: "File",
     // Party Management Translations
-    party_name: "Registration Platform",
-    welcome_to_party: "Welcome to Our Platform",
-    party_hero_description: "Manage your registrations and data with ease and professionalism.",
-    join_party_now: "Register Now",
-    general_data: "General Data",
-    administration: "Administration",
-    wilayas_communes: "Wilayas and Communes",
-    establishments: "Establishments",
-    users_management: "Users Management",
-    admin_card_desc: "Manage national data, establishments, and system users",
-    party_management: "Party Management",
-    national_wilaya_admin: "National and Wilaya Admin",
-    member_approval: "Member Approval",
-    wilaya_management: "Wilaya Management",
-    referral_tracking: "Referral Tracking",
-    party_admin_desc: "Approve new members and manage party operations",
-    member_portal: "Member Portal",
-    party_members: "Party Members",
-    member_profile: "Member Profile",
-    referral_link: "Referral Link",
-    member_resources: "Resources",
-    member_portal_desc: "Access member dashboard and invite others",
-    about_us: "About Us",
-    contact_us: "Contact Us",
-    portals: "Portals",
-    address_party: "Address",
-    phone_number_party: "Phone Number",
-    opening_hours_party: "Opening Hours",
-    identity_document: "Identity Document",
-    personal_photo: "Personal Photo",
-    function: "Function/Job",
-    referred_by: "Referred by",
-    membership_status: "Membership Status",
-    member_waiting_message: "Membership Pending - requires administration approval",
-    member_activated_message: "Membership Activated - congratulations, you are now an active member",
-    approve_member: "Approve Member",
-    joined: "Active Member",
-    in_waiting: "In Waiting",
-    inactive: "Inactive",
-    nin: "NIN",
     personal_token: "Personal Token",
     joining_date: "Joining Date",
     main: "Main Menu",
-    administration: "Administration",
     last_name_arabic: "Last Name (AR)",
     last_name_french: "Last Name (FR)",
     first_name_arabic: "First Name (AR)",
@@ -1702,7 +1344,6 @@ const lang = {
     fill_gender_birth_certificate_first: "Please fill gender, birth date, and certificate number first",
     identity_document: "Identity Document",
     personal_photo: "Personal Photo",
-    party_member_registration: "Membership Registration",
     join_party_community: "Complete your registration to join our community and access tools.",
     referred_by_member: "You were referred by an existing member",
     complete_registration: "Complete Registration",
@@ -1717,26 +1358,13 @@ const lang = {
     member_deactivated_successfully: "Member deactivated successfully",
     error_updating_member_state: "Error updating member state",
     not_specified: "Not specified",
-    membership_status: "Membership Status",
     member_details: "Member Details",
-    identity_card: "Identity Card",
     arabic_name: "Name (AR)",
     latin_name: "Name (EN)",
     arabic_surname: "Surname (AR)",
     latin_surname: "Surname (EN)",
     national_id: "NIN",
-    establishment_parameters: "Establishment Parameters",
-    identity_verification: "Identity Verification",
-    identity_verification_desc: "When enabled, new members must upload their national identity document and a personal photo during signup.",
-    validation_authority: "Validation Authority",
-    validation_authority_desc: "Define who has the authority to approve new party members within this establishment's scope.",
-    watani_only: "National Admin Only",
-    wilaya_allowed: "Wilaya Admin Allowed",
-    change_token: "Change Referral Token",
-    change_token_desc: "When enabled, the member's referral token will change each time someone registers using it. If disabled, the token remains permanent.",
     parameters_updated_successfully: "Parameters updated successfully",
-    loading_parameters: "Loading parameters...",
-    no_establishment_associated: "No establishment associated with your account.",
 
     // Welcome and Waiting Pages
     welcome_to_the_party: "Welcome to the Party!",
@@ -1756,7 +1384,6 @@ const lang = {
     access_desc: "Start your journey as a party member.",
 
     // Party Members Management
-    party_members: "Party Members",
     party_member: "Party Member",
     details_of: "Details of",
     failed_to_load_members: "Failed to load party members",
