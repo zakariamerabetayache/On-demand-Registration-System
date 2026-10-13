@@ -578,7 +578,6 @@ const lang = {
     enter_prenom_fr: "أدخل اللقب بالفرنسية",
 
     // Children Management Translations
-    failed_to_load_children: "فشل في  الأطفال",
     failed_to_load_children: "فشل في تحميل الأطفال",
     failed_to_delete_child: "فشل في حذف الطفل",
     child_created_successfully: "تم إنشاء الطفل بنجاح",
