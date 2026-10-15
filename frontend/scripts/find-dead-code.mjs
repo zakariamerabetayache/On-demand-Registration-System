@@ -146,8 +146,7 @@ function runKnip() {
   console.log(c(C.gray, "  This may take a few seconds...\n"));
 
   const result = spawnSync(
-    "npx",
-    ["knip", "--reporter", "json"],
+    "npx knip --reporter json",
     {
       cwd:       rootDir,
       encoding:  "utf8",
@@ -228,17 +227,128 @@ function runKnip() {
   return report;
 }
 
+// ── Normalize Knip Report (supports modern Knip v5+ issues array & older formats) ──
+function normalizeKnipReport(raw) {
+  if (!raw) return null;
+
+  // Modern Knip (v5+): report is { issues: [ { file, files, dependencies, exports, ... } ] }
+  if (Array.isArray(raw.issues)) {
+    var files = [];
+    var exportsMap = {};
+    var typesMap = {};
+    var dependencies = [];
+    var devDependencies = [];
+    var unlistedMap = {};
+    var unresolvedMap = {};
+    var binaries = [];
+    var duplicatesMap = {};
+
+    for (var i = 0; i < raw.issues.length; i++) {
+      var issue = raw.issues[i];
+      var file = issue.file;
+
+      // 1. Unused files
+      if (Array.isArray(issue.files) && issue.files.length > 0) {
+        for (var fi = 0; fi < issue.files.length; fi++) {
+          var f = issue.files[fi];
+          var fname = typeof f === "string" ? f : (f.name || file);
+          if (fname && files.indexOf(fname) === -1) {
+            files.push(fname);
+          }
+        }
+      }
+
+      // 2. Unused dependencies
+      if (Array.isArray(issue.dependencies) && issue.dependencies.length > 0) {
+        for (var di = 0; di < issue.dependencies.length; di++) {
+          dependencies.push(issue.dependencies[di]);
+        }
+      }
+
+      // 3. Unused devDependencies
+      if (Array.isArray(issue.devDependencies) && issue.devDependencies.length > 0) {
+        for (var ddi = 0; ddi < issue.devDependencies.length; ddi++) {
+          devDependencies.push(issue.devDependencies[ddi]);
+        }
+      }
+
+      // 4. Unused exports
+      if (Array.isArray(issue.exports) && issue.exports.length > 0) {
+        exportsMap[file] = issue.exports;
+      }
+
+      // 5. Unused types
+      if (Array.isArray(issue.types) && issue.types.length > 0) {
+        typesMap[file] = issue.types;
+      }
+
+      // 6. Unlisted dependencies
+      if (Array.isArray(issue.unlisted) && issue.unlisted.length > 0) {
+        unlistedMap[file] = issue.unlisted;
+      }
+
+      // 7. Unresolved imports
+      if (Array.isArray(issue.unresolved) && issue.unresolved.length > 0) {
+        unresolvedMap[file] = issue.unresolved;
+      }
+
+      // 8. Binaries
+      if (Array.isArray(issue.binaries) && issue.binaries.length > 0) {
+        for (var bi = 0; bi < issue.binaries.length; bi++) {
+          var b = issue.binaries[bi];
+          var bname = typeof b === "string" ? b : (b.name || JSON.stringify(b));
+          if (bname && binaries.indexOf(bname) === -1) {
+            binaries.push(bname);
+          }
+        }
+      }
+
+      // 9. Duplicates
+      if (Array.isArray(issue.duplicates) && issue.duplicates.length > 0) {
+        duplicatesMap[file] = issue.duplicates;
+      }
+    }
+
+    return {
+      files: files,
+      exports: exportsMap,
+      types: typesMap,
+      dependencies: dependencies,
+      devDependencies: devDependencies,
+      unlisted: unlistedMap,
+      unresolved: unresolvedMap,
+      binaries: binaries,
+      duplicates: duplicatesMap,
+    };
+  }
+
+  // Fallback for older Knip formats
+  return {
+    files: Array.isArray(raw.files) ? raw.files : [],
+    exports: (raw.exports && typeof raw.exports === "object") ? raw.exports : {},
+    types: (raw.types && typeof raw.types === "object") ? raw.types : {},
+    dependencies: Array.isArray(raw.dependencies) ? raw.dependencies : [],
+    devDependencies: Array.isArray(raw.devDependencies) ? raw.devDependencies : [],
+    unlisted: (raw.unlisted && typeof raw.unlisted === "object") ? raw.unlisted : {},
+    unresolved: (raw.unresolved && typeof raw.unresolved === "object") ? raw.unresolved : {},
+    binaries: Array.isArray(raw.binaries) ? raw.binaries : [],
+    duplicates: (raw.duplicates && typeof raw.duplicates === "object") ? raw.duplicates : {},
+  };
+}
+
 // =============================================================
 // PHASE 3 — PARSE & DISPLAY REPORT
 // =============================================================
 
-function displayReport(report) {
+function displayReport(rawReport) {
   section(3, "Dead code report");
 
-  if (!report) {
+  if (!rawReport) {
     console.log(c(C.green + C.bold, "\n  No dead code found. Project is clean!"));
-    return { files: [], exports: {}, dependencies: [], devDependencies: [] };
+    return { files: [], exports: {}, types: {}, dependencies: [], devDependencies: [], unlisted: {}, unresolved: {}, binaries: [], duplicates: {} };
   }
+
+  var report = normalizeKnipReport(rawReport);
 
   // ── Unused Files ──────────────────────────────────────────
   var unusedFiles = Array.isArray(report.files) ? report.files : [];
@@ -339,6 +449,40 @@ function displayReport(report) {
     }
   }
 
+  // ── Unlisted Binaries ─────────────────────────────────────
+  var binaries = Array.isArray(report.binaries) ? report.binaries : [];
+  if (binaries.length > 0) {
+    console.log("\n" + c(C.bold + C.magenta, "  UNLISTED BINARIES (" + binaries.length + ")"));
+    console.log(c(C.gray, "  " + "─".repeat(58)));
+    for (var bi = 0; bi < binaries.length; bi++) {
+      console.log(c(C.magenta, "    ! ") + binaries[bi]);
+    }
+  }
+
+  // ── Duplicate Exports ─────────────────────────────────────
+  var dupMap = (report.duplicates && typeof report.duplicates === "object") ? report.duplicates : {};
+  var dupFiles = Object.keys(dupMap);
+  var totalDups = dupFiles.reduce(function(acc, f) {
+    return acc + (Array.isArray(dupMap[f]) ? dupMap[f].length : 0);
+  }, 0);
+  if (totalDups > 0) {
+    console.log("\n" + c(C.bold + C.yellow, "  DUPLICATE EXPORTS (" + totalDups + " across " + dupFiles.length + " file(s))"));
+    console.log(c(C.gray, "  " + "─".repeat(58)));
+    for (var df in dupMap) {
+      console.log(c(C.yellow, "    " + df));
+      var groups = Array.isArray(dupMap[df]) ? dupMap[df] : [];
+      for (var gi = 0; gi < groups.length; gi++) {
+        var group = groups[gi];
+        if (Array.isArray(group)) {
+          var names = group.map(function(item) {
+            return (item.name || JSON.stringify(item)) + (item.line ? ":" + item.line : "");
+          }).join(" | ");
+          console.log(c(C.gray, "      -> " + names));
+        }
+      }
+    }
+  }
+
   // ── Unresolved Imports ────────────────────────────────────
   var unresolvedMap   = (report.unresolved && typeof report.unresolved === "object") ? report.unresolved : {};
   var unresolvedFiles = Object.keys(unresolvedMap);
@@ -367,6 +511,12 @@ function displayReport(report) {
   console.log("    Unused exports:     " + c(totalExports      > 0 ? C.yellow  : C.green, String(totalExports).padStart(4)));
   console.log("    Unused types:       " + c(totalTypes        > 0 ? C.magenta : C.green, String(totalTypes).padStart(4)));
   console.log("    Unused deps:        " + c(totalDeps         > 0 ? C.blue    : C.green, String(totalDeps).padStart(4)));
+  if (binaries.length > 0) {
+    console.log("    Unlisted binaries:  " + c(C.magenta, String(binaries.length).padStart(4)));
+  }
+  if (totalDups > 0) {
+    console.log("    Duplicate exports:  " + c(C.yellow, String(totalDups).padStart(4)));
+  }
   if (totalUnlisted > 0) {
     console.log("    Unlisted deps:      " + c(C.red, String(totalUnlisted).padStart(4)) + "  <- fix these first!");
   }
@@ -378,8 +528,13 @@ function displayReport(report) {
   return {
     files:           unusedFiles,
     exports:         exportsMap,
+    types:           typesMap,
     dependencies:    unusedDeps,
     devDependencies: unusedDevDeps,
+    unlisted:        unlistedMap,
+    unresolved:      unresolvedMap,
+    binaries:        binaries,
+    duplicates:      dupMap,
   };
 }
 
@@ -515,8 +670,11 @@ function main() {
   var hasIssues =
     findings.files.length > 0 ||
     Object.keys(findings.exports).length > 0 ||
+    Object.keys(findings.types).length > 0 ||
     findings.dependencies.length > 0 ||
-    findings.devDependencies.length > 0;
+    findings.devDependencies.length > 0 ||
+    findings.binaries.length > 0 ||
+    Object.keys(findings.duplicates).length > 0;
 
   if (!hasIssues) {
     console.log("\n" + c(C.green + C.bold, "  Nothing to clean up. Project is clean!"));
