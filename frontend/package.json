@@ -8,7 +8,6 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --watch DATA/db.json --port 5000",
     "hello": "node scripts/hello.js",
     "delete-logs": "node scripts/remove-console-logs.mjs --write",
     "find-logs": "node scripts/remove-console-logs.mjs",

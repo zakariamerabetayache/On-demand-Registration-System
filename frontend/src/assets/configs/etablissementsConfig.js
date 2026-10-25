@@ -264,4 +264,3 @@ export const getEtablissementsConfig = (user, translate = (k) => k) => ({
   },
 });
 
-export default getEtablissementsConfig;
