@@ -542,14 +542,13 @@ function displayReport(rawReport) {
 // PHASE 4 — WRITE MODE (delete files + uninstall deps)
 // =============================================================
 // Only runs when --write flag is passed.
-// Unused exports are NOT auto-removed — too risky without
-// knowing local vs re-exported usage. Review them manually.
-// =============================================================
-
 function applyChanges(findings) {
   var files           = findings.files;
   var dependencies    = findings.dependencies;
   var devDependencies = findings.devDependencies;
+  var binaries        = findings.binaries || [];
+  var duplicates      = findings.duplicates || {};
+  var exportsMap      = findings.exports || {};
 
   section(4, "Applying changes (--write mode)");
 
@@ -603,10 +602,170 @@ function applyChanges(findings) {
     console.log(c(C.green, "\n  OK: No unused dependencies to uninstall."));
   }
 
-  // 4c: Note about unused exports
-  console.log("\n" + c(C.yellow, "  NOTE: Unused exports are not auto-removed."));
-  console.log(c(C.gray, "        Auto-removing exports can break re-exports and barrel files."));
-  console.log(c(C.gray, "        Review the list from Phase 3 and remove them manually."));
+  // 4c: Clean unlisted binary scripts from package.json
+  if (binaries.length > 0) {
+    console.log("\n  Checking unlisted binaries in package.json...");
+    var pkgPath = path.resolve(rootDir, "package.json");
+    if (fs.existsSync(pkgPath)) {
+      try {
+        var pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
+        var scripts = pkg.scripts || {};
+        var removedScripts = [];
+        for (var sKey in scripts) {
+          var sCmd = scripts[sKey];
+          for (var bi = 0; bi < binaries.length; bi++) {
+            var bName = binaries[bi];
+            var regex = new RegExp("(^|[\\s/\\\\])" + bName + "(\\s|$)", "i");
+            if (regex.test(sCmd)) {
+              delete scripts[sKey];
+              removedScripts.push(sKey + ' ("' + sCmd + '")');
+              break;
+            }
+          }
+        }
+        if (removedScripts.length > 0) {
+          fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n", "utf8");
+          console.log(c(C.green, "    OK: Removed dead scripts using unlisted binaries:"));
+          for (var ri = 0; ri < removedScripts.length; ri++) {
+            console.log(c(C.red, "      x removed script: ") + removedScripts[ri]);
+          }
+        } else {
+          console.log(c(C.gray, "    ~ No matching scripts found in package.json."));
+        }
+      } catch (err) {
+        console.error(c(C.red, "    ERROR updating package.json: " + err.message));
+      }
+    }
+  }
+
+  // 4d: Clean redundant duplicate exports (e.g. export default X when named export X already exists)
+  var dupFiles = Object.keys(duplicates);
+  if (dupFiles.length > 0) {
+    console.log("\n  Cleaning duplicate exports...");
+    for (var dfi = 0; dfi < dupFiles.length; dfi++) {
+      var df = dupFiles[dfi];
+      var absPath = path.resolve(rootDir, df);
+      if (!fs.existsSync(absPath)) continue;
+
+      var content = fs.readFileSync(absPath, "utf8");
+      var lines = content.split(/\r?\n/);
+      var groups = duplicates[df] || [];
+      var fileModified = false;
+
+      for (var gi = 0; gi < groups.length; gi++) {
+        var group = groups[gi];
+        if (!Array.isArray(group)) continue;
+        var hasDefault = group.find(function(item) { return item.name === "default"; });
+        var named = group.find(function(item) { return item.name !== "default"; });
+
+        if (hasDefault && named) {
+          var targetLineIdx = -1;
+          if (hasDefault.line && hasDefault.line <= lines.length) {
+            if (/^\s*export\s+default\s+/.test(lines[hasDefault.line - 1])) {
+              targetLineIdx = hasDefault.line - 1;
+            }
+          }
+          if (targetLineIdx === -1) {
+            var pattern = new RegExp("^\\s*export\\s+default\\s+" + named.name + "\\s*;?\\s*$");
+            targetLineIdx = lines.findIndex(function(line) { return pattern.test(line); });
+          }
+
+          if (targetLineIdx !== -1) {
+            var lineRemoved = lines[targetLineIdx];
+            lines.splice(targetLineIdx, 1);
+            fileModified = true;
+            console.log(c(C.red, "    x removed redundant default export in " + df + ": ") + lineRemoved.trim());
+          }
+        }
+      }
+
+      if (fileModified) {
+        fs.writeFileSync(absPath, lines.join("\n"), "utf8");
+      }
+    }
+  }
+
+  // 4e: Clean remaining unused exports
+  var expFiles = Object.keys(exportsMap);
+  if (expFiles.length > 0) {
+    console.log("\n  Cleaning unused exports...");
+    for (var efi = 0; efi < expFiles.length; efi++) {
+      var ef = expFiles[efi];
+      var absPath = path.resolve(rootDir, ef);
+      if (!fs.existsSync(absPath)) continue;
+
+      var content = fs.readFileSync(absPath, "utf8");
+      var lines = content.split(/\r?\n/);
+      var items = exportsMap[ef] || [];
+      var fileModified = false;
+
+      for (var ii = 0; ii < items.length; ii++) {
+        var item = items[ii];
+        var expName = typeof item === "string" ? item : item.name;
+        var expLine = typeof item === "object" ? item.line : null;
+
+        // Skip default if it was already removed
+        if (expName === "default") {
+          var defIdx = -1;
+          if (expLine && expLine <= lines.length && /^\s*export\s+default\s+/.test(lines[expLine - 1])) {
+            defIdx = expLine - 1;
+          } else {
+            defIdx = lines.findIndex(function(l) { return /^\s*export\s+default\s+/.test(l); });
+          }
+          if (defIdx !== -1) {
+            var removedDef = lines[defIdx];
+            lines.splice(defIdx, 1);
+            fileModified = true;
+            console.log(c(C.red, "    x removed unused default export in " + ef + ": ") + removedDef.trim());
+          }
+          continue;
+        }
+
+        // Named function declaration: export function expName(...) { ... }
+        if (expName) {
+          var fnRegex = new RegExp("^(\\s*)export\\s+(async\\s+)?function\\s+" + expName + "\\b");
+          var lineIdx = -1;
+          if (expLine && expLine <= lines.length && fnRegex.test(lines[expLine - 1])) {
+            lineIdx = expLine - 1;
+          } else {
+            lineIdx = lines.findIndex(function(l) { return fnRegex.test(l); });
+          }
+
+          if (lineIdx !== -1) {
+            var startIdx = lineIdx;
+            var braceCount = 0;
+            var endIdx = startIdx;
+            for (var li = startIdx; li < lines.length; li++) {
+              for (var ci = 0; ci < lines[li].length; ci++) {
+                if (lines[li][ci] === '{') braceCount++;
+                else if (lines[li][ci] === '}') braceCount--;
+              }
+              if (braceCount === 0 && li >= startIdx && lines[li].includes('{')) {
+                endIdx = li;
+                break;
+              }
+            }
+            var countToRemove = endIdx - startIdx + 1;
+            lines.splice(startIdx, countToRemove);
+            fileModified = true;
+            console.log(c(C.red, "    x removed unused export function " + expName + " in " + ef));
+          } else {
+            var exportConstRegex = new RegExp("^(\\s*)export\\s+(const|let|var)\\s+" + expName + "\\b");
+            var cIdx = lines.findIndex(function(l) { return exportConstRegex.test(l); });
+            if (cIdx !== -1) {
+              lines[cIdx] = lines[cIdx].replace(/^(\s*)export\s+/, "$1");
+              fileModified = true;
+              console.log(c(C.yellow, "    ~ unexported " + expName + " in " + ef));
+            }
+          }
+        }
+      }
+
+      if (fileModified) {
+        fs.writeFileSync(absPath, lines.join("\n"), "utf8");
+      }
+    }
+  }
 }
 
 // =============================================================
