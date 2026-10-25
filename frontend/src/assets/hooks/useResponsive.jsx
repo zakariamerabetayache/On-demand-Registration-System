@@ -33,9 +33,6 @@ function calculate() {
     info = newInfo;
   }
 }
-  responsiveConfig = config;
-  if (info) calculate();
-}
 export default function useResponsive() {
   if (isBrowser && !listening) {
     info = {};

@@ -1,106 +1,59 @@
 import { useEffect, useState } from "react";
-
-import { Select, Badge, Button, Modal, List, Typography, Tag, Upload, message } from "antd";
-import { useNavigate, Link } from "react-router-dom";
-import { Avatar, Dropdown } from "antd";
-import { UserOutlined, ToolOutlined, LogoutOutlined, BellOutlined, FileTextOutlined, UploadOutlined, CheckCircleOutlined, CalendarOutlined } from "@ant-design/icons";
+import { Select, Typography, Tag, Dropdown } from "antd";
+import { useNavigate } from "react-router-dom";
+import {
+  LogoutOutlined,
+  KeyOutlined,
+  UserOutlined,
+  DownOutlined,
+} from "@ant-design/icons";
 import { useLanguage } from "../locale/LanguageContext";
 import { useStateContext } from "../contexts/ContextProvider";
 import axiosClient from "../../axios-client";
 import ErrorHandling from "../components/ErrorHandling";
 import digitToDesignation from "../utils/digitToDesignation";
-import logo from "../img/algeria.jpg"
+import logo from "../img/algeria.jpg";
 import LogoDisplay from "./LogoDisplay";
 
 export default function Header({ isMobile }) {
   const { isRTL, translate, changeLanguage, currentLanguage } = useLanguage();
   const [currentLang, setCurrentLang] = useState(currentLanguage);
   const { user, setUser, setToken } = useStateContext();
-
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     changeLanguage(currentLang);
   }, [currentLang]);
 
-  const headerStyle = {
-    height: 80,
-    backgroundColor: "#f8f9fa",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "0 20px",
-    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-    borderBottom: "1px solid #e9ecef",
-    width: "100%",
-    float: isRTL ? "left" : "right",
-    position: "fixed",
-    zIndex: 99,
-  };
-
-
-  const ProfileDropdown = () => {
-    const navigate = useNavigate();
-
-    return (
-      <div
-        style={{
-          cursor: "pointer",
-          display: "flex",
-          minWidth: "200px",
-          fontWeight: "600",
-        }}
-        onClick={() => navigate("/profile")}
-      >
-        <Avatar
-          size="large"
-          src={undefined}
-          style={{
-            color: "#f56a00",
-            backgroundColor: "#fde3cf",
-            boxShadow: "rgba(150, 190, 238, 0.35) 0px 0px 6px 1px",
-            marginRight: 30,
-          }}
-        >
-          {user?.nom_fr?.charAt(0).toUpperCase()}
-          {user?.prenom_fr?.charAt(0).toUpperCase()}
-        </Avatar>
-        <div style={{ float: "left", display: "inline", paddingLeft: "15px" }}>
-          <p>
-            {isRTL
-              ? `${user?.nom_ar?.toUpperCase()} ${user?.prenom_ar?.toUpperCase()}`
-              : `${user?.nom_fr?.toUpperCase()} ${user?.prenom_fr?.toUpperCase()}`}
-          </p>
-          <p> {user?.email}</p>
-          <span
-            style={{
-              fontWeight: "bold",
-              fontSize: "10px",
-              color: "#2e7d32", // green text
-              backgroundColor: "#fff9d5", // light yellow background
-              border: "1px solid #fbc02d", // stronger yellow border
-              padding: "2px 5px",
-              borderRadius: "5px",
-              marginTop: "6px",
-              marginBottom: "6px",
-              display: "inline-block",
-              minWidth: "100px",
-              textAlign: "center",
-            }}
-          >
-            {digitToDesignation("role_id", user?.role_id)}
-          </span>
-        </div>
-      </div>
-    );
-  };
-
-  ;
+  const initials = `${user?.nom_fr?.charAt(0) || ""}${user?.prenom_fr?.charAt(0) || ""}`.toUpperCase() || "U";
+  const fullName = isRTL
+    ? `${user?.nom_ar || ""} ${user?.prenom_ar || ""}`.trim() || user?.email
+    : `${user?.nom_fr || ""} ${user?.prenom_fr || ""}`.trim() || user?.email;
 
   const items = [
     {
-      label: <ProfileDropdown />,
-      key: "ProfileDropdown",
+      key: "profileHeader",
+      label: (
+        <div
+          onClick={() => navigate("/profile")}
+          className="p-2 flex items-center gap-3 cursor-pointer hover:bg-slate-50 rounded-lg transition-colors"
+        >
+          <div className="h-10 w-10 rounded-full flex items-center justify-center font-bold text-sm bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-sm ring-2 ring-emerald-100">
+            {initials}
+          </div>
+          <div className="flex flex-col">
+            <span className="font-semibold text-sm text-slate-800 leading-tight">
+              {fullName}
+            </span>
+            <span className="text-xs text-slate-500 truncate max-w-[180px]">
+              {user?.email}
+            </span>
+            <span className="mt-1 inline-flex items-center text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 rounded px-1.5 py-0.5 w-fit">
+              {digitToDesignation("role_id", user?.role_id)}
+            </span>
+          </div>
+        </div>
+      ),
     },
     {
       type: "divider",
@@ -108,12 +61,13 @@ export default function Header({ isMobile }) {
     {
       key: "personalToken",
       label: (
-        <div style={{ padding: '4px 12px' }}>
-          <Typography.Text type="secondary" style={{ fontSize: '12px', display: 'block', marginBottom: '4px' }}>
-            {translate('personal_token') || 'الرمز الخاص'}
-          </Typography.Text>
-          <Tag color="blue" style={{ fontSize: '14px', fontWeight: 'bold' }}>
-            {user?.personal_token}
+        <div className="px-2 py-1">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
+            <KeyOutlined className="text-slate-400" />
+            <span>{translate("personal_token") || "الرمز الخاص"}</span>
+          </div>
+          <Tag color="cyan" className="font-mono text-xs font-semibold px-2 py-0.5 rounded">
+            {user?.personal_token || "—"}
           </Tag>
         </div>
       ),
@@ -121,11 +75,17 @@ export default function Header({ isMobile }) {
     {
       type: "divider",
     },
-
     {
-      icon: <LogoutOutlined />,
+      key: "profile",
+      icon: <UserOutlined />,
+      label: translate("profile") || "الملف الشخصي",
+      onClick: () => navigate("/profile"),
+    },
+    {
       key: "logout",
-      label: translate("logout"),
+      icon: <LogoutOutlined className="text-rose-500" />,
+      danger: true,
+      label: translate("logout") || "تسجيل الخروج",
       onClick: () => {
         axiosClient
           .post(`/logout`)
@@ -141,78 +101,65 @@ export default function Header({ isMobile }) {
   ];
 
   return (
-    <header style={headerStyle}>
-      <div>
-        <LogoDisplay user={user} defaultLogo={logo} />
-      </div>
-
-      <div
-        style={{
-          minWidth: user?.role_id === 'parent' ? "280px" : "220px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: "12px",
-          position: "relative",
-        }}
-      >
-        <div>
-          <Select
-            value={currentLang}
-            defaultValue="ar"
-            style={{ width: "100px", fontSize: "12px" }}
-            options={[
-              {
-                value: "ar",
-                label: <span>🇸🇦 العربية</span>,
-              },
-              {
-                value: "en",
-                label: <span>🇺🇸 English</span>,
-              },
-              {
-                value: "fr",
-                label: <span>🇫🇷 Français</span>,
-              },
-            ]}
-            onChange={(e) => setCurrentLang(e)}
-          ></Select>
+    <header className="h-20 w-full fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)] transition-all">
+      <div className="h-full px-4 sm:px-6 flex items-center justify-between">
+        {/* Left: Logo & Organization Info */}
+        <div className="flex items-center gap-3">
+          <LogoDisplay user={user} defaultLogo={logo} />
         </div>
 
-        <Dropdown
-          menu={{
-            items,
-          }}
-          trigger={["click"]}
-          placement="bottomRight"
-          style={{
-            width: "280px",
-            // float: "right",
-            fontWeight: "bold",
-          }}
-        >
-          {/* <Badge dot> */}
-          <Avatar
-            src={undefined}
-            style={{
-              fontWeight: "bold",
-              color: "#f56a00",
-              backgroundColor: "#fde3cf",
-              boxShadow: "rgba(150, 190, 238, 0.35) 0px 0px 10px 2px",
-              //   float: "right",
-              cursor: "pointer",
-              position: "absolute",
-              ...(!isRTL ? { right: 0 } : { left: 0 }),
-            }}
-            size="large"
-          >
-            {user?.nom_fr?.charAt(0).toUpperCase()}
-            {user?.prenom_fr?.charAt(0).toUpperCase()}
-          </Avatar>
-          {/* </Badge> */}
-        </Dropdown>
-      </div>
+        {/* Right: Controls (Language + User Menu) */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Language Switcher */}
+          <div className="relative">
+            <Select
+              value={currentLang}
+              onChange={(e) => setCurrentLang(e)}
+              className="w-28 text-xs font-medium"
+              bordered={false}
+              style={{
+                backgroundColor: "rgba(241, 245, 249, 0.8)",
+                borderRadius: "9999px",
+                padding: "2px 4px",
+              }}
+              options={[
+                { value: "ar", label: <span>🇩🇿 العربية</span> },
+                { value: "fr", label: <span>🇫🇷 Français</span> },
+                { value: "en", label: <span>🇺🇸 English</span> },
+              ]}
+            />
+          </div>
 
+          {/* User Profile Pill / Trigger */}
+          <Dropdown
+            menu={{ items }}
+            trigger={["click"]}
+            placement={isRTL ? "bottomLeft" : "bottomRight"}
+            arrow
+          >
+            <button
+              type="button"
+              className="flex items-center gap-2.5 p-1.5 ltr:pr-3.5 rtl:pl-3.5 rounded-full bg-slate-100/80 hover:bg-slate-200/70 border border-slate-200/90 transition-all cursor-pointer shadow-xs group focus:outline-hidden"
+            >
+              <div className="h-9 w-9 rounded-full flex items-center justify-center font-bold text-xs bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-sm ring-2 ring-white">
+                {initials}
+              </div>
+
+              <div className="hidden sm:flex flex-col text-left rtl:text-right">
+                <span className="text-xs font-semibold text-slate-800 leading-tight group-hover:text-emerald-700 transition-colors max-w-[120px] truncate">
+                  {fullName}
+                </span>
+                <span className="text-[10px] font-medium text-slate-500 leading-tight">
+                  {digitToDesignation("role_id", user?.role_id)}
+                </span>
+              </div>
+
+              <DownOutlined className="text-[10px] text-slate-400 group-hover:text-slate-600 transition-transform duration-200 group-hover:translate-y-0.5" />
+            </button>
+          </Dropdown>
+        </div>
+      </div>
     </header>
   );
 }
+

@@ -59,13 +59,14 @@ Route::apiResource('/wilayas', WilayaController::class);
 
 
 // ETABLISSEMENTS ROUTES
-Route::get('/etablissements/count', [EtablissementController::class, 'getCount']);
 Route::post('/etablissements/bulk-delete', [EtablissementController::class, 'bulkDelete']);
 Route::post('/etablissements/{id}/upload-logo', [EtablissementController::class, 'uploadLogo']);
 Route::delete('/etablissements/{id}/delete-logo', [EtablissementController::class, 'deleteLogo']);
 Route::put('/etablissements/{id}/parameters', [EtablissementController::class, 'updateParameters']);
 
 });
+Route::get('/etablissements/count', [EtablissementController::class, 'getCount']);
+
 Route::apiResource('/etablissements', EtablissementController::class);
 
 
